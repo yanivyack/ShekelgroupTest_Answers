@@ -1,0 +1,1 @@
+BuildDebug.bat release

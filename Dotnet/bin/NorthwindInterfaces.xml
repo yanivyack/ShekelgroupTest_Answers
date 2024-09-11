@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NorthwindInterfaces</name>
+    </assembly>
+    <members>
+        <member name="T:Northwind.Customers.IShowCustomers">
+            <summary>Show Customers(P#3)</summary>
+        </member>
+        <member name="M:Northwind.Customers.IShowCustomers.Run(ENV.TextParameter)">
+            <summary>Show Customers(P#3)</summary>
+        </member>
+        <member name="T:Northwind.Products.IShowProducts">
+            <summary>Show Products(P#4)</summary>
+        </member>
+        <member name="M:Northwind.Products.IShowProducts.Run(ENV.NumberParameter)">
+            <summary>Show Products(P#4)</summary>
+        </member>
+        <member name="T:Northwind.Orders.IShowOrders">
+            <summary>Show Orders(P#5)</summary>
+        </member>
+        <member name="M:Northwind.Orders.IShowOrders.Run">
+            <summary>Show Orders(P#5)</summary>
+        </member>
+        <member name="T:Northwind.AsyncHelperBase">
+            <summary>AsyncHelperBase</summary>
+        </member>
+    </members>
+</doc>

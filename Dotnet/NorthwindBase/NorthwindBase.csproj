@@ -1,0 +1,1064 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1ABFFD5E-BA1C-40C8-8C90-B215B8247641}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Northwind</RootNamespace>
+    <AssemblyName>NorthwindBase</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <SubsystemVersion>5.00</SubsystemVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DocumentationFile>..\bin\NorthwindBase.xml</DocumentationFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <NoWarn>1587,1570,1591,1573</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DocumentationFile>..\bin\NorthwindBase.xml</DocumentationFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <NoWarn>1587,1570,1591,1573</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.7.2</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Design" />
+    <Reference Include="Firefly.Box">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Firefly.Box.dll</HintPath>
+    </Reference>
+    <Reference Include="ENV">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\ENV.dll</HintPath>
+    </Reference>
+    <Reference Include="NorthwindInterfaces">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\NorthwindInterfaces.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\DataSources.cs" />
+    <Compile Include="Shared\Theme\IO\Html\HtmlLabel.cs" />
+    <Compile Include="Shared\Theme\Fonts\Header5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\SampleFontRotation135Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\DefaultFixedSizeFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_29.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Types\CustomerID.cs" />
+    <Compile Include="Shared\Theme\Fonts\SmallFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_23.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Block_EndBlockOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\Grid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_7.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\Grid.Designer.cs">
+      <DependentUpon>Grid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Types\OrderID.cs" />
+    <Compile Include="Shared\Theme\Colors\HyperlinkPushbuttonVisited.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Types\ProdID.cs" />
+    <Compile Include="Shared\Printing\Printers.cs" />
+    <Compile Include="Types\Amount.cs" />
+    <Compile Include="Types\Date.cs" />
+    <Compile Include="Shared\Theme\Controls\Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\Form.Designer.cs">
+      <DependentUpon>Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\CompatibleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\CompatibleForm.Designer.cs">
+      <DependentUpon>CompatibleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\DefaultImportForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\HyperlinkPushB_Walkthrough.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\IO\Html\HtmlGrid.cs" />
+    <Compile Include="Shared\Theme\IO\Html\HtmlFrame.cs" />
+    <Compile Include="Shared\Theme\Colors\Reserved_30.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_24.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_8.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\Grid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\Grid.Designer.cs">
+      <DependentUpon>Grid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\LargeFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header6.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\IO\Html\HtmlTable.cs" />
+    <Compile Include="Shared\Theme\Colors\CallOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\SampleFontRotation180Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\ReportSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\CommentedEntry.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\ReportSection.Designer.cs">
+      <DependentUpon>ReportSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\TextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\TextBox.Designer.cs">
+      <DependentUpon>TextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\IO\Html\HtmlTableRow.cs" />
+    <Compile Include="Shared\Theme\Colors\Reserved_31.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\PushButtonDefaultFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Window.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\IO\Html\HtmlTableCell.cs" />
+    <Compile Include="Shared\Theme\Fonts\WizardLargeTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\CompatibleGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\CompatibleGrid.Designer.cs">
+      <DependentUpon>CompatibleGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\ReportLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\ReportLayout.Designer.cs">
+      <DependentUpon>ReportLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\EvaluateOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\FixedSizeFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\GroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\GroupBox.Designer.cs">
+      <DependentUpon>GroupBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\SampleFontRotation225Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\ComponentObject.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_32.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\ActiveX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\ActiveX.Designer.cs">
+      <DependentUpon>ActiveX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\HTML_DefaultBold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\RadioButtonDefaultFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\EditField.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\WizardSmallTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\UpdateOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\GridColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\GridColumn.Designer.cs">
+      <DependentUpon>GridColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\InheritedProperty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\InheritedProperty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\SampleFontRotation270Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\TextIO\TextSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\CompatibleTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\CompatibleTextBox.Designer.cs">
+      <DependentUpon>CompatibleTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_33.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\TextIO\TextSection.Designer.cs">
+      <DependentUpon>TextSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\_3D_Effect.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\Shape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\Shape.Designer.cs">
+      <DependentUpon>Shape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\InputOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header1Bold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\WizardText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\IO\Html\HtmlGridColumn.cs" />
+    <Compile Include="Shared\Theme\Colors\BrokenProperty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\TextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\TextBox.Designer.cs">
+      <DependentUpon>TextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\BrokenProperty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_34.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\TextIO\TextTemplate.cs" />
+    <Compile Include="Shared\Theme\Fonts\SampleFontRotation315Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\CompatibleGridColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\DialogWindows.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\Button.Designer.cs">
+      <DependentUpon>Button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\CompatibleGridColumn.Designer.cs">
+      <DependentUpon>CompatibleGridColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header2Bold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\FlowOutput.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\TextIO\TextLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\TextIO\TextLayout.Designer.cs">
+      <DependentUpon>TextLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\AsDataProperty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_35.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_25.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\AsDataProperty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\DialogFields.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\IO\Html\HtmlTextBox.cs" />
+    <Compile Include="Shared\Theme\Fonts\SampleFontRotation0Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header3Bold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\MarkingColumnControls.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\BrowseOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\GroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\GroupBox.Designer.cs">
+      <DependentUpon>GroupBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\TextIO\TextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\GridColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\GridColumn.Designer.cs">
+      <DependentUpon>GridColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_26.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_36.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_9.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\DialogTitles.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\RichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\ComponentBuilderWarning.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\UserDefinedFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\RichTextBox.Designer.cs">
+      <DependentUpon>RichTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header4Bold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\IO\Html\HtmlSection.cs" />
+    <Compile Include="Shared\Theme\Colors\ExitOSOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\Shape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\Shape.Designer.cs">
+      <DependentUpon>Shape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_37.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_27.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\ListWindows.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\IO\Html\HtmlFrameSet.cs" />
+    <Compile Include="Shared\Theme\Fonts\Reserved_10.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\PictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\PictureBox.Designer.cs">
+      <DependentUpon>PictureBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\ApplicationWorkspace.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\RichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\RichTextBox.Designer.cs">
+      <DependentUpon>RichTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\Line.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\UserDefinedFont_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\Line.Designer.cs">
+      <DependentUpon>Line.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\RaiseEventOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_38.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header5Bold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\ListFields.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\DebugHelper.cs" />
+    <Compile Include="Shared\Theme\Colors\Windows3D_TableTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\IO\Html\HtmlPictureBox.cs" />
+    <Compile Include="Shared\Theme\Controls\Line.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\Line.Designer.cs">
+      <DependentUpon>Line.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_28.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BusinessProcessBase.cs" />
+    <Compile Include="FlowUIControllerBase.cs" />
+    <Compile Include="Shared\Theme\Fonts\Reserved_11.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UIControllerBase.cs" />
+    <Compile Include="Application.cs" />
+    <Compile Include="Shared\Theme\Colors\HandlerLevel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\ListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\ListBox.Designer.cs">
+      <DependentUpon>ListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_39.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\ColorSchemes.cs" />
+    <Compile Include="Shared\Theme\Controls\PictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\ListTitles.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\PictureBox.Designer.cs">
+      <DependentUpon>PictureBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header6Bold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\MenuBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\DefaultWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_29.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\TextIO\Line.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_15.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_12.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_40.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\PopupWindows.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\HTML_DefaultItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\TabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\TabControl.Designer.cs">
+      <DependentUpon>TabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\IO\Html\HtmlLine.cs" />
+    <Compile Include="Shared\Theme\Fonts\Reserved_5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\CheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\CheckBox.Designer.cs">
+      <DependentUpon>CheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Toolbar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_30.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_13.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\DefaultEditField.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\TextIO\Shape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\ContextMenuMap.cs" />
+    <Compile Include="Shared\Theme\Colors\Reserved_16.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_41.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\PopupWindowFields.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header1Italic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\DefaultContextMenu.cs" />
+    <Compile Include="Shared\Theme\Fonts\Reserved_6.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_31.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\ComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\ComboBox.Designer.cs">
+      <DependentUpon>ComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Tooltips.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\StatusBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\DefaultFreeText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_14.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\DefaultPulldownMenu.cs" />
+    <Compile Include="Shared\Theme\Fonts\Header2Italic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_17.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\ScrollBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\ScrollBar.Designer.cs">
+      <DependentUpon>ScrollBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\TextPrintingStylesMap.cs" />
+    <Compile Include="Shared\Theme\Colors\PopupWindowTitles.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_7.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\FontSchemes.cs" />
+    <Compile Include="Shared\Theme\Fonts\Reserved_32.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\DefaultHelpWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_9.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\Label.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Printing\Label.Designer.cs">
+      <DependentUpon>Label.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\TableFields.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_18.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_15.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\DefaultTableEditField.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\OK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\WebBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\OK.Designer.cs">
+      <DependentUpon>OK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\WebBrowser.Designer.cs">
+      <DependentUpon>WebBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Default3D_Effect.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header3Italic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_8.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\DescriptionText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\Label.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\Label.Designer.cs">
+      <DependentUpon>Label.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_10.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_33.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_19.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\TableTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_16.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\RadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\RadioButton.Designer.cs">
+      <DependentUpon>RadioButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\Close.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\DefaultPrintFormColor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\Close.Designer.cs">
+      <DependentUpon>Close.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\DefaultTableTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\GroupText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_11.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header4Italic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\TabText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\CompatibleLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_20.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\CompatibleLabel.Designer.cs">
+      <DependentUpon>CompatibleLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\DefaultHyperlink.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_34.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\V9CompatibleDefaultTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\V9CompatibleDefaultTable.Designer.cs">
+      <DependentUpon>V9CompatibleDefaultTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\DialogFields.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\TitleInFocus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_17.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_12.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_18.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_21.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\DefaultDialogEditFields.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\SubForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\SubForm.Designer.cs">
+      <DependentUpon>SubForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header5Italic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\Customers.cs" />
+    <Compile Include="Shared\Theme\Colors\TitleOutOfFocus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_13.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header6Italic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\DialogText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_35.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\TreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Controls\TreeView.Designer.cs">
+      <DependentUpon>TreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_22.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\_3D_Effect_.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\Orders.cs" />
+    <Compile Include="Shared\Theme\Fonts\Reserved_19.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_14.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\DefaultDialogText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\Order_Details.cs" />
+    <Compile Include="Shared\Theme\Colors\Reserved_23.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\TextIO\TextLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\ProgramTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\PushButtonText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Shared\Theme\Fonts\HTML_DefaultBoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_36.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\RemarkOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_20.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_24.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\Categories.cs" />
+    <Compile Include="Shared\Theme\Fonts\DefaultTableNameTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\UnparkedItems.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\StatusLineText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\Shippers.cs" />
+    <Compile Include="Shared\Theme\Fonts\Header1BoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\SelectOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_25.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_37.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\Suppliers.cs" />
+    <Compile Include="Shared\Theme\Fonts\Reserved_21.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\DefaultHelp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\BreakPoint.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\ConfirmMessagesFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\VerifyOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_38.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header2BoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_26.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\HTML_Default.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\HotSpot.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Link_EndLinkOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\ToolkitWindowsFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_39.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_27.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header3BoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\HyperlinkPushbuttonText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_6.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_40.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Colors\Reserved_28.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header4BoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_41.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header5BoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\SampleFontRotation45Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header6BoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Header4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\SampleFontRotation90Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shared\Theme\Fonts\Reserved_22.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <!-- here i am suposed to be-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

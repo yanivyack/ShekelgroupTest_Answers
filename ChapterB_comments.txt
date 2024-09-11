@@ -1,0 +1,3 @@
+I followed the instructions for the *.ini file's setup as closely as I could but the program can't seem to connect to the DB, and 2 hours of Google search didn't help either.
+Judging by the tutorial in the provided link, the programming I did should work without any problems, but as long as I can't manage to connect the program to the DB I have no way of testing it for myself.
+For future reference, it could be helpful if the instructions for the *.ini file's setup could also include an example of what the file should look like with the updated values, since the instructions weren't entirely clear. Northwind seems to be a rather obscure platform, so it's less likely for new programmers to find helpful information about it and figure this out by themselves.

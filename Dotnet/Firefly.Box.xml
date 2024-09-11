@@ -1,0 +1,3405 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Firefly.Box</name>
+    </assembly>
+    <members>
+        <member name="T:Firefly.Box.Context">
+            <Summary>
+            Represent the container of the running application. This static class is used to initiate the main display (MDI) of the application in diverse formats.
+            </Summary>
+        </member>
+        <member name="M:Firefly.Box.Context.RunAsMDI(System.Windows.Forms.Form,Firefly.Box.Advanced.ModuleController)">
+            <summary>
+            Runs the <paramref name="module"/> within the <paramref name="mdi"/> form.
+            </summary>
+            <param name="mdi">The MDI form</param>
+            <param name="module">The application to execute</param>
+        </member>
+        <member name="M:Firefly.Box.Context.RunAsMDI(System.Windows.Forms.Form,System.Action)">
+            <summary>
+            Runs the <paramref name="module"/> within the <paramref name="mdi"/> form.
+            </summary>
+            <param name="mdi">The MDI form</param>
+            <param name="module">The application to execute</param>
+        </member>
+        <member name="M:Firefly.Box.Context.RunAsMDIForWinformTests(System.Windows.Forms.Form,System.Action)">
+            <summary>
+            Runs the <paramref name="command"/> within the <paramref name="mdi"/> form.
+            </summary>
+            <param name="mdi">The MDI form</param>
+            <param name="command">The application to execute</param>
+        </member>
+        <member name="M:Firefly.Box.Context.CloseAllTasksAndRun(System.Action)">
+            <summary>
+            Closes all the currently active tasks, and performs the command. 
+            Used mainly by menu items to Execute tasks directly from the menu.
+            </summary>
+            <example>
+            This example demonstrates the various overloads of Raise in action
+            <code source = "C:\Dotnet2\WizardOfOz\TestFirefly.Box\Documentation\DemoInvoke.cs"/>
+            </example>
+            <param name="actionToRun"></param>
+        </member>
+        <member name="P:Firefly.Box.Context.ActiveTasks">
+            <summary>
+            Returns a <returnType/> that contains all the active <Tasks/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Context.RunningTasks">
+            <summary>
+            Returns a <returnType/> that contains all the currently running <Tasks/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Context.Suspend(System.Int32)">
+            <summary>
+            Suspends the application for the specified duration. The display will be refreshed during the suspend.
+            Any keyboard input will terminate the suspension.
+            </summary>
+            <param name="milliseconds">The duration in milliseconds for the suspension</param>
+            <returns>Key pressed by user to abort suspension or <see cref="F:System.Windows.Forms.Keys.None"/> if suspension completed or ended by a mouse click.</returns>
+        </member>
+        <member name="T:Firefly.Box.LockingStrategy">
+            <summary>
+            Represents the Task locking strategy
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.LockingStrategy.None">
+            <summary>
+            A lock will never occur
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.LockingStrategy.OnRowLoading">
+            <summary>
+            A lock will start immediately after the row is loaded
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.LockingStrategy.OnRowSaving">
+            <summary>
+            A lock will start before the row is saved to the database and after the row saving event
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.LockingStrategy.OnUserEdit">
+            <summary>
+            A lock will start when the row is changed. See <see cref="P:Firefly.Box.UIController.RowChanged"/> for more information.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Data.Advanced.SortCollection">
+            <summary>
+            Represents a <see cref="T:Firefly.Box.Sort"/> collection
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Data.Advanced.SortCollection.Add(Firefly.Box.Sort[])">
+            <summary>
+            Adds a <see cref="T:Firefly.Box.Sort"/> to the collection
+            </summary>
+            <param name="orderBy"></param>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.SortCollection.Item(System.Int32)">
+            <summary>Returns the <see cref="T:Firefly.Box.Sort"/> at the specified <paramref name="index"/></summary>
+             <param name="index">The index of the <see cref="T:Firefly.Box.Sort"/> to be returned</param>
+             <returns>The <see cref="T:Firefly.Box.Sort"/> at the specified <paramref name="index"/></returns>
+        </member>
+        <member name="M:Firefly.Box.Data.Advanced.SortCollection.IndexOf(Firefly.Box.Sort)">
+            <summary>
+            Returns the index of the specified sort
+            </summary>
+            <param name="item">the item to look for</param>
+            <returns>The index for the specified item, or -1 if the item was not found.</returns>
+        </member>
+        <member name="T:Firefly.Box.Data.Advanced.FilterCollection">
+            <summary>
+            A collection of filters that must evaluate to true for this filter condition to be met.
+            
+            </summary>
+            <remarks>All the filters added to this collection are treated as if the 'And' relation is applied to them.</remarks>
+            <MYEXAMPLE code="WhereUsage" pubs="Y">filter usage</MYEXAMPLE>
+        </member>
+        <member name="M:Firefly.Box.Data.Advanced.FilterCollection.Clear">
+            <summary>
+            Clears the filter of all it's content
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Data.Advanced.ColumnCollection">
+            <summary>
+            Represents a columns collection
+            </summary>
+            <remarks>
+            For more information see <see cref="T:Firefly.Box.BusinessProcess"/>.<see cref="P:Firefly.Box.BusinessProcess.Columns"/>, <see cref="T:Firefly.Box.UIController"/>.<see cref="P:Firefly.Box.UIController.Columns"/> or <see cref="T:Firefly.Box.Data.Entity"/>.<see cref="P:Firefly.Box.Data.Entity.Columns"/>
+            </remarks>
+        </member>
+        <member name="M:Firefly.Box.Data.Advanced.ColumnCollection.Contains(Firefly.Box.Data.Advanced.ColumnBase)">
+            <summary>
+            Checks if the column is part of the collection
+            </summary>
+            <param name="column">The column to search for</param>
+            <returns>True if the column exists in the collection, otherwise false.</returns>
+        </member>
+        <member name="M:Firefly.Box.Data.Advanced.ColumnCollection.Add(Firefly.Box.Data.Advanced.ColumnBase[])">
+            <summary>
+            Add a range of columns to the collection
+            </summary>
+            <param name="columns">The columns to add</param>
+        </member>
+        <member name="M:Firefly.Box.Data.Advanced.ColumnCollection.ToArray">
+            <returns>An array that contains all the columns in this <This/></returns>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.ColumnCollection.Item(System.Int32)">
+            <summary>
+            Returns the column at the specified index
+            </summary>
+            <param name="index">the index for the desired column</param>
+            <returns>the column at the specified index</returns>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.ColumnCollection.Item(System.String)">
+            <summary>
+            Returns the column that natches the name specified
+            </summary>
+            <param name="columnName">The column name to search for</param>
+            <returns>The column that matches the specified name</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Firefly.Box.Data.Advanced.FilterBase" -->
+        <member name="T:Firefly.Box.Data.Advanced.ICustomFilterMember">
+            <summary>
+            Encapsulates a custom filter.
+            </summary>
+            <remarks>Used in advanced custom filter situation, in which there is a need for a custom filter and a will to encapsulate it to prevent misuse.
+            </remarks>
+            <MYEXAMPLE code="CustomFilterMemberDemo" pubs="Y">CustomMemberFilter</MYEXAMPLE>
+        </member>
+        <member name="M:Firefly.Box.Data.Advanced.ICustomFilterMember.SendFilterTo(Firefly.Box.Data.Advanced.CustomFilterCollector)">
+            <summary>
+            Provides the filter of this <this/>
+            </summary>
+            <param name="sendFilterString">The filterCollector that recieves the filter</param>
+            <MYEXAMPLE code="CustomFilterMemberDemo" pubs="Y">CustomMemberFilter</MYEXAMPLE>
+        </member>
+        <member name="T:Firefly.Box.Data.Advanced.CustomFilterCollector">
+            <summary>Used to send a custom filter to the database</summary>
+            <remarks>For a complete explanation see <see cref="M:Firefly.Box.Data.Advanced.ICustomFilterMember.SendFilterTo(Firefly.Box.Data.Advanced.CustomFilterCollector)"/></remarks>
+            <MYEXAMPLE code="CustomFilterMemberDemo" pubs="Y">CustomMemberFilter</MYEXAMPLE>
+        </member>
+        <member name="T:Firefly.Box.Data.Advanced.ColumnBase">
+            <summary>
+            The Base class of all columns. 
+            </summary>
+            <remarks>
+            Represents the basic storage of data, and it's interaction with <see cref="T:Firefly.Box.UIController"/>, <see cref="T:Firefly.Box.BusinessProcess"/> and the database.
+            </remarks>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.ColumnBase.NullDisplayText">
+            <summary>
+            Gets or sets the text that will be displayed if this column's <see cref="P:Firefly.Box.Data.Advanced.ColumnBase.Value"/> is null.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.ColumnBase.OriginalValue">
+            <summary>
+            Gets the original value as it was before the EnterRow event.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.ColumnBase.Value">
+            <summary>
+            Gets the currently stored value.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.ColumnBase.Entity">
+            <summary>
+            Gets the <see cref="P:Firefly.Box.Data.Advanced.ColumnBase.Entity"/> to which this column is bound. 
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.ColumnBase.DbReadOnly">
+             <summary>
+             Determines if this column is only read from the database but not saved to it.
+             </summary>
+             <remarks> When set to true, this column will be included while extracting data from the database (select statements) but will be excluded while updating data to the database (Update and insert statements).
+             Useful for database calculated columns, and views with inner selects
+            </remarks>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.ColumnBase.OnChangeMarkRowAsChanged">
+            <summary>
+            Determines if the <see cref="T:Firefly.Box.UIController"/>.<see cref="P:Firefly.Box.UIController.RowChanged"/> property will be set, when this column is changed.
+            
+            </summary>
+            <remarks>When set to false, a change to this column will constitute a change to the row, and will not cause a lock when the locking is set to OnUserEdit
+            For more information see <see cref="T:Firefly.Box.UIController"/>.<see cref="P:Firefly.Box.UIController.RowChanged"/> and <see cref="E:Firefly.Box.UIController.SavingRow"/>
+            </remarks>
+            <MYEXAMPLE code="RowChangedDemo"></MYEXAMPLE>
+        </member>
+        <member name="M:Firefly.Box.Data.Advanced.ColumnBase.ResetToDefaultValue">
+            <summary>
+            Resets the column's value, to its default one.
+            </summary>
+        </member>
+        <member name="E:Firefly.Box.Data.Advanced.ColumnBase.ValueChanged">
+            <summary>
+            Occurs when the <see cref="P:Firefly.Box.Data.Advanced.ColumnBase.Value"/> of this column changes
+            </summary>
+        </member>
+        <member name="E:Firefly.Box.Data.Advanced.ColumnBase.Expand">
+            <summary>
+            Occurs when the user parks on a control that is bound to this column and invokes the <see cref="F:Firefly.Box.Command.Expand"/> <see cref="T:Firefly.Box.Command"/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.ColumnBase.AfterExpandGoToNextControl">
+            <summary>
+            Returns an <returnType/> that represents additional settings for the <see cref="E:Firefly.Box.Data.Advanced.ColumnBase.Expand"/> event
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.ColumnBase.FormatInfo">
+            <summary>
+            Used to provide additional info on the specified <see cref="P:Firefly.Box.Data.Advanced.ColumnBase.Format"/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.ColumnBase.InputRange">
+            <summary>
+            Get or sets this column's input range. 
+            </summary>
+            <remarks>
+            This input range will be used to validate user input and as the default of a <see cref="T:Firefly.Box.UI.Advanced.ListControlBase"/> <see cref="P:Firefly.Box.UI.Advanced.ListControlBase.Values"/> property of controls that are bound to this property.
+            </remarks>
+        </member>
+        <member name="T:Firefly.Box.Data.Advanced.ValueChangedEventArgs`1">
+            <summary>
+            Provides data for a ValueChaged event
+            </summary>
+            <typeparam name="dataType">The value's type</typeparam>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.ValueChangedEventArgs`1.ChangedByUser">
+            <summary>
+            Determines if the change was made by the user, on the form.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.ValueChangedEventArgs`1.PreviousValue">
+            <summary>
+            The value before the change was initiated
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Data.Advanced.ValueChangedHandler`1">
+            <summary>
+            Represents the method that will be called whenever a column value's changes.
+            </summary>
+            <typeparam name="dataType">the type of the value</typeparam>
+            <param name="e">data for the value changed event</param>
+        </member>
+        <member name="T:Firefly.Box.Data.Advanced.EntityCollection">
+            <summary>
+            Represents a collection of entities
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.EntityCollection.Item(System.Int32)">
+            <summary>
+            Returns the Entity at the specified index
+            </summary>
+            <param name="index">The index for the entity</param>
+            <returns>The entity at the specified index</returns>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.EntityCollection.Count">
+            <summary>
+            Returns the number of entities in this collection
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Data.Advanced.EntityCollection.Add(Firefly.Box.Data.Entity)">
+            <summary>
+            Adds an entity to the collection
+            </summary>
+            <param name="entity">The entity to add</param>
+        </member>
+        <member name="T:Firefly.Box.Data.Advanced.RollbackException">
+            <summary>
+            Rollsback the existing transaction
+            </summary>
+            <remarks>
+            When this exception is thrown, all the tasks will abort until the task that initiated the trainsaction.</remarks>
+        </member>
+        <member name="T:Firefly.Box.Data.Advanced.NumberFormatInfo">
+            <summary>
+            Used to provide extra info about a <see cref="T:Firefly.Box.Number"/> format
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.NumberFormatInfo.DecimalDigits">
+            <summary>
+            Returns the number of decimal digits
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.NumberFormatInfo.WholeDigits">
+            <summary>
+            Returns the number of whole digits
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.NumberFormatInfo.TotalDigits">
+            <summary>
+            Returns the total number of digits. <see cref="P:Firefly.Box.Data.Advanced.NumberFormatInfo.DecimalDigits"/> + <see cref="P:Firefly.Box.Data.Advanced.NumberFormatInfo.WholeDigits"/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.NumberFormatInfo.Precision">
+            <summary>
+            Returns the total number of digits. Same as <see cref="P:Firefly.Box.Data.Advanced.NumberFormatInfo.TotalDigits"/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.NumberFormatInfo.Scale">
+            <summary>
+            Returns the number of decimal digits. Same as <see cref="P:Firefly.Box.Data.Advanced.NumberFormatInfo.DecimalDigits"/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.NumberFormatInfo.SupportsMinus">
+            <summary>
+            Returns true if the format supports values that are less than zero.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Data.Advanced.FormatInfo">
+            <summary>
+            Used to provide additional info about a format
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.FormatInfo.MaxLength">
+            <summary>
+            The maximum number of characters that this format can hold
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Data.Advanced.TextFormatInfo">
+            <summary>
+            Used to provide extra info about a <see cref="T:Firefly.Box.Text"/> format
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.TextFormatInfo.MaxDataLength">
+            <summary>
+            The maximum number of data characters of this format
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.TextFormatInfo.RightToLeft">
+            <summary>
+            Returns true if this format describes a right to left text.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Data.Advanced.TypedColumnBase`1">
+            <summary>
+            The base class of all columns. 
+            </summary>
+            <remarks>
+            Adds to <see cref="T:Firefly.Box.Data.Advanced.ColumnBase"/> the typed behavior according to it's type
+            </remarks>
+            <typeparam name="dataType">The type of data, of this col umn</typeparam>
+        </member>
+        <member name="E:Firefly.Box.Data.Advanced.TypedColumnBase`1.ValueChanged">
+            <summary>
+            Occurs when the <see cref="P:Firefly.Box.Data.Advanced.TypedColumnBase`1.Value"/> of this column changes
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Data.Advanced.TypedColumnBase`1.IsNull">
+            <summary>
+            Returns true if the current <see cref="P:Firefly.Box.Data.Advanced.TypedColumnBase`1.Value"/> is null.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Firefly.Box.Data.Advanced.TypedColumnBase`1.AllowNull">
+            <summary>
+            Gets or sets whether this column allows null values in it's <see cref="P:Firefly.Box.Data.Advanced.TypedColumnBase`1.Value"/> property
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Data.Advanced.TypedColumnBase`1.BindValue(System.Func{`0})">
+            <summary>
+            Binds the value of this column to the specified expression
+            </summary>
+            <remarks>
+            The expression specified will determine the column's value in one of the following scenarios:
+            <list type="bullet">
+            <item>The column is bound to an entity, and a new row is created</item>
+            <item>The column is NOT bound to an entity, and a row is entered</item>
+            <item>One of the expression's elements change, acording to the reevaluation engine. For more information see <see cref="P:Firefly.Box.UIController.Columns"/></item>
+            </list>
+            </remarks>
+            <MYEXAMPLE code="ColumnsCollection"></MYEXAMPLE>
+            <param name="expression"></param>
+        </member>
+        <member name="M:Firefly.Box.Data.Advanced.TypedColumnBase`1.BindValueToColumnChange(System.Func{`0},Firefly.Box.Data.Advanced.ColumnBase[])">
+            <summary>
+            Sets an expression that will be used for the value of this column
+            </summary>
+            <remarks>
+            The expression specified will determine the column's value in one of the following scenarios:
+            The expression specified will determine the column's value in one of the following scenarios:
+            <list type="bullet">
+            <item>The column is bound to an entity, and a new row is created</item>
+            <item>The column is NOT bound to an entity, and a row is entered</item>
+            <item>The value of one of the columns specified in the affecting columns parameter changed.</item>
+            </list>
+            For more information see <see cref="M:Firefly.Box.Data.Advanced.TypedColumnBase`1.BindValue(System.Func{`0})"/>
+            </remarks>
+            <param name="expression">The expression to use</param>
+            <param name="affectingColumns">The columns that will be monitored for change</param>
+        </member>
+        <member name="P:Firefly.Box.Data.DataProvider.DatabaseErrorEventArgs.HandlingStrategy">
+            <summary>
+            Sets or gets the <returnType/> for handling this error
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.DataProvider.DatabaseErrorEventArgs.Handled">
+            <summary>
+            Determines whether or not to allow other handlers to process this event. When set to false, no other handler will be activated
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.DataProvider.DatabaseErrorEventArgs.ErrorType">
+            <summary>
+            Returns the <returnType/> of this error
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Firefly.Box.Data.DataProvider.DatabaseErrorEventHandler" -->
+        <!-- Badly formed XML comment ignored for member "T:Firefly.Box.Data.DataProvider.DatabaseErrorHandler" -->
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorHandler._scope">
+            <summary>
+            Determines if this handler is enabled
+            </summary>
+            <MYEXAMPLE code="HandlerScopeDemo"></MYEXAMPLE>
+        </member>
+        <member name="P:Firefly.Box.Data.DataProvider.DatabaseErrorHandler.Scope">
+            <summary>
+            The scope of this handler <seealso cref="T:Firefly.Box.HandlerScope"/>
+            </summary>
+            <MYEXAMPLE code="HandlerScopeDemo"></MYEXAMPLE>
+        </member>
+        <member name="E:Firefly.Box.Data.DataProvider.DatabaseErrorHandler.Invokes">
+            <summary>
+            The <see cref="T:Firefly.Box.Data.DataProvider.DatabaseErrorEventHandler"/> that will be Executed when the a database error occurs and all conditions are met
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Data.DataProvider.DatabaseErrorHandlingStrategy">
+            <summary>
+            Determines the strategy in which the error will be handled
+            </summary>
+            <MYEXAMPLE code="DatabaseErrorHandling"></MYEXAMPLE>
+        </member>
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorHandlingStrategy.Ignore">
+            <summary>
+            Ignore the error, and try to process
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorHandlingStrategy.Default">
+            <summary>
+            The default behavior of the error
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorHandlingStrategy.Retry">
+            <summary>
+            The operation will be retried
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorHandlingStrategy.RollbackAndRecover">
+            <summary>
+            The transaction will be rolled back, and the task that started the transaction will try to recover according to the <see cref="!:UIController.OnDatabaseErrorRetry"/> property
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorHandlingStrategy.Rollback">
+            <summary>
+            The transaction will be rolled back, and the task that started the transaction will be terminated.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorHandlingStrategy.Throw">
+            <summary>
+            The exception will be thrown and the transaction will be rolled back.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorHandlingStrategy.AbortAllTasks">
+            <summary>
+            All open tasks will be closed.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorHandlingStrategy.AbortTask">
+            <summary>
+            The current task will close.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Data.DataProvider.DatabaseErrorType">
+            <summary>
+            The deferent types of errors
+            </summary>
+            <MYEXAMPLE code="DatabaseErrorHandling"></MYEXAMPLE>
+        </member>
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorType.AllErrors">
+            <summary>
+            Represents any and all errors
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorType.UnknownError">
+            <summary>
+            An error that is not specificly defined
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorType.DuplicateIndex">
+            <summary>
+            Occurs when values are updated or inserted to the database, and at least one of the unique contraints is violated
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorType.LockedRow">
+            <summary>
+            An attempt to lock a row failed because the row is already locked by another session
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Data.DataProvider.DatabaseErrorType.DataChangeFailed">
+            <summary>
+            An attempt to perform update, insert or delete failed for an unspecified reason
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Firefly.Box.Data.DataProvider.DataSetDataProvider" -->
+        <member name="P:Firefly.Box.Data.DataProvider.DataSetDataProvider.DataSet">
+            <summary>
+            The source dataset of this data provider
+            </summary>
+            <MYEXAMPLE code="pubs"></MYEXAMPLE>
+        </member>
+        <member name="T:Firefly.Box.Data.Entity.PrimaryKeyAttribute">
+            <summary>
+            Used to determine which columns represent the <see cref="T:Firefly.Box.Data.Entity"/>'s primary key.
+            </summary>
+            <MYEXAMPLE code="pubs"></MYEXAMPLE>
+        </member>
+        <member name="P:Firefly.Box.Data.Entity.PrimaryKeyAttribute.Identity">
+            <summary>
+            Used to mark Identity columns in the database.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Entity.Cached">
+            <summary>
+            When set to true, whenever this <This/> is used within a <see cref="T:Firefly.Box.Relation"/> the data will be cached. 
+            </summary>
+            <remarks>
+            Caching only works if the <see cref="T:Firefly.Box.Relation"/>.<see cref="P:Firefly.Box.Relation.Where"/> is unique. the uniqueness is checked against the <see cref="P:Firefly.Box.Data.Entity.PrimaryKeyColumns"/> and the <see cref="P:Firefly.Box.Data.Entity.Indexes"/> collection
+            </remarks>
+        </member>
+        <member name="P:Firefly.Box.Data.Entity.Indexes">
+            <summary>
+            Returns a collection of <see cref="T:Firefly.Box.Sort"/>s that are associated with this <This/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Data.Entity.PrimaryKeyColumns">
+            <summary>
+            Returns an array containing the columns that are used as this <This/> primary key
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Firefly.Box.Data.Entity.SetPrimaryKey(Firefly.Box.Data.Advanced.ColumnBase[])" -->
+        <member name="P:Firefly.Box.Data.Entity.Columns">
+            <summary>
+            Returns a <returnType/> that contains all the columns of this <This/>
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Firefly.Box.Data.Entity.PopulateColumns" -->
+        <member name="M:Firefly.Box.Data.Entity.Exists">
+            <summary>
+            Checks if the <This/> exists in the data provider.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Firefly.Box.Data.Entity.CountRows">
+            <summary>
+            Returns the number of rows that exist in the <see cref="N:Firefly.Box.Data.DataProvider"/>
+            </summary>
+            <returns>The number of rows</returns>
+        </member>
+        <member name="M:Firefly.Box.Data.Entity.Drop">
+            <summary>
+            Instructs the <see cref="N:Firefly.Box.Data.DataProvider"/> to drop this <This/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Data.Entity.Truncate">
+            <summary>
+            Instructs the <see cref="N:Firefly.Box.Data.DataProvider"/> to truncate this <This/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Data.TextColumn.StartsWith(Firefly.Box.Text)">
+            <summary>
+            Returns a filter that checks if the text starts with the specified value.
+            </summary>
+            <param name="value">Value to check for</param>
+            <returns>The filter</returns>
+        </member>
+        <member name="M:Firefly.Box.Data.TextColumn.StartsWith(System.Func{Firefly.Box.Text})">
+            <summary>
+            Returns a filter that checks if the text starts with the specified value.
+            </summary>
+            <param name="expression">A method that returns the value to check for</param>
+            <returns>The filter</returns>
+        </member>
+        <member name="T:Firefly.Box.Data.ByteArrayColumn">
+            <summary>
+            A column of type byte[]
+            </summary>
+            <remarks>
+            Used to store images, richtext content, and files.
+            </remarks>
+        </member>
+        <member name="M:Firefly.Box.Data.ByteArrayColumn.ToString">
+            <summary>
+            Returns the text representation of the byte[] content
+            </summary>
+            <remarks>
+            The conversion is done isung the default encoding.
+            This method can be overriden, to change the way the content is converted to text.
+            </remarks>
+            <returns>The text representation of the byte[]</returns>
+        </member>
+        <member name="M:Firefly.Box.Data.ByteArrayColumn.FromString(System.String)">
+            <summary>
+            Converts Text data to byte[]
+            </summary>
+            <remarks>
+            The default conversion is done using the default encoding. 
+            This method can be overriden, to change the way text is converted to byte[].
+            </remarks>
+            <param name="value">the text value to be converted</param>
+            <returns>The byte[] containing the converted value</returns>
+        </member>
+        <member name="M:Firefly.Box.Data.ByteArrayColumn.FromString(Firefly.Box.Data.TextColumn)">
+            <summary>
+            Converts Text data to byte[]
+            </summary>
+            <remarks>
+            The default conversion is done using the default encoding. 
+            This method can be overriden, to change the way text is converted to byte[].
+            </remarks>
+            <param name="column">the text value to be converted</param>
+            <returns>The byte[] containing the converted value</returns>
+        </member>
+        <member name="T:Firefly.Box.Advanced.TaskCollection">
+            <summary>
+            Represents a collection of tasks.
+            </summary>
+            <remarks>
+            used in <see cref="!:TaskContext123"/>.<see cref="!:TaskContext123.ActiveTasks"/>
+            </remarks>
+        </member>
+        <member name="P:Firefly.Box.Advanced.TaskCollection.Count">
+            <summary>
+            Returns the number of tasks
+            </summary>    
+        </member>
+        <member name="P:Firefly.Box.Advanced.TaskCollection.Item(System.Int32)">
+            <summary>
+            Returns the <see cref="T:Firefly.Box.Advanced.ITask"/> at the specified <paramref name="index"/>
+            </summary>
+            <param name="index">The index of the <see cref="T:Firefly.Box.Advanced.ITask"/> to be returned</param>
+            <returns>The <see cref="T:Firefly.Box.Advanced.ITask"/> that matches the <paramref name="index"/></returns>
+        </member>
+        <member name="T:Firefly.Box.Advanced.GroupCollection">
+            <summary>
+            Used to monitor changes in a column's value, between deferent rows. Usually used for subtotals. 
+            </summary>
+            <GroupDemo/>
+        </member>
+        <member name="M:Firefly.Box.Advanced.GroupCollection.Add(Firefly.Box.Data.Advanced.ColumnBase)">
+             <summary>Adds a new group to the <see cref="T:Firefly.Box.BusinessProcess"/></summary>
+             <param name="monitoredColumn">The column that is monitored for change</param>
+             <returns>an <see cref="T:Firefly.Box.Group"/> that monitors the column's change between rows. </returns>
+            <see cref="E:Firefly.Box.Group.Enter"/><see cref="E:Firefly.Box.Group.Leave"/>
+             <GroupDemo/>
+        </member>
+        <member name="P:Firefly.Box.Advanced.GroupCollection.Item(Firefly.Box.Data.Advanced.ColumnBase)">
+            <summary>
+            Returns the <see cref="T:Firefly.Box.Group"/> for the specified column
+            </summary>
+            <param name="column">The monitored column</param>
+            <returns>The <see cref="T:Firefly.Box.Group"/> that monitors the column's change between rows.</returns>
+            <GroupDemo/>
+        </member>
+        <member name="T:Firefly.Box.Advanced.HandlerCollection">
+            <summary>
+            Represents a task's handler collection.
+            </summary>
+            <remarks>
+            Handlers are added and created by this object, in <see cref="T:Firefly.Box.UIController"/> and <see cref="T:Firefly.Box.BusinessProcess"/>.
+            These handler can change the default behaviours of <see cref="T:Firefly.Box.Command"/>s.
+            </remarks>
+            <MYEXAMPLE code="HandlerScopeDemo"></MYEXAMPLE>
+        </member>
+        <member name="M:Firefly.Box.Advanced.HandlerCollection.AddDatabaseErrorHandler(Firefly.Box.Data.DataProvider.DatabaseErrorType,Firefly.Box.HandlerScope)">
+            <summary>
+            Adds a <see cref="T:Firefly.Box.Data.DataProvider.DatabaseErrorHandler"/>
+            </summary>
+            <param name="triggeringError">The error to monitor</param>
+            <returns>A <see cref="T:Firefly.Box.Data.DataProvider.DatabaseErrorHandler"/> that will be invoked when this error ocures</returns>
+            <MYEXAMPLE code="DatabaseErrorHandling"></MYEXAMPLE>
+        </member>
+        <member name="P:Firefly.Box.Advanced.HandlerCollection.Count">
+            <summary>
+            Gets the number of handlers in this collection
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Advanced.RelationLoadHandler">
+            <summary>
+            Represents the method that handles the loading of data into a relation.
+            </summary>
+            <param name="foundRow">Whether the row was found or not</param>
+        </member>
+        <member name="T:Firefly.Box.Advanced.RelationCollection">
+            <summary>
+            Represents the relations used by a certain task.
+            </summary>
+            <remarks>For a detailed explanation of using relations, see <see cref="T:Firefly.Box.UIController"/>.<see cref="P:Firefly.Box.UIController.Relations"/> and <see cref="T:Firefly.Box.BusinessProcess"/>.<see cref="P:Firefly.Box.BusinessProcess.Relations"/> </remarks>
+            <MYEXAMPLE code="RelationsTypes"></MYEXAMPLE>
+        </member>
+        <member name="M:Firefly.Box.Advanced.RelationCollection.Add(Firefly.Box.Relation)">
+            <summary>
+            Adds a relation to the collection
+            </summary>
+            <param name="relation">The relation to be added</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Firefly.Box.Advanced.ModuleController" -->
+        <member name="M:Firefly.Box.Advanced.ModuleController.AddReference(Firefly.Box.Advanced.ModuleController)">
+            <summary>
+            Binds another <This/> as a component of this <This/>. <seealso cref="T:Firefly.Box.Advanced.ModuleController"/>
+            </summary>
+            <param name="moduleController"></param>
+        </member>
+        <member name="P:Firefly.Box.Advanced.ModuleController.View">
+            <summary>
+            The <returnType/> that will be displayed when this <This/> is activated.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Advanced.CachedTaskBase">
+            <summary>
+            The base class for <see cref="T:Firefly.Box.Flow.CachedTask`1"/> and <see cref="T:Firefly.Box.Flow.CachedTask`1"/>
+            See them for more information.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Advanced.TaskInitializationException">
+            <summary>
+            The base class for any error that occurs during task initialization
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Advanced.IllegalActivityException">
+            <summary>
+            Occurs when an activity is set to a task that contradicts the allowed activities.
+            </summary>
+            <remarks>
+            This exception is raised when a <see cref="T:Firefly.Box.UIController"/>'s <see cref="P:Firefly.Box.UIController.Activity"/> property is set to an activity that is not allowed, by the <see cref="P:Firefly.Box.UIController.AllowInsert"/>, <see cref="P:Firefly.Box.UIController.AllowUpdate"/> and <see cref="P:Firefly.Box.UIController.AllowBrowse"/> properties.
+            </remarks>
+            <seealso cref="P:Firefly.Box.UIController.Activity"/>
+            <seealso cref="T:Firefly.Box.Activities"/>
+        </member>
+        <member name="P:Firefly.Box.Advanced.IllegalActivityException.Activity">
+            <summary>
+            The illegal activity that caused this exception.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Advanced.FlowAbortException">
+            <summary>
+            An exception that represents the need to stop the ongoing flow. 
+            </summary>
+            <remarks>This exception is handled within the framework and is used to stop the normal tab order flow.
+            It is also handled within the <see cref="E:Firefly.Box.UIController.SavingRow"/> event both in  <see cref="T:Firefly.Box.UIController"/> and in <see cref="T:Firefly.Box.BusinessProcess"/>
+            and results with the row not being left.
+            </remarks>
+        </member>
+        <member name="T:Firefly.Box.Advanced.ColumnNotAddedToColumnCollection">
+            <summary>
+            Column is used outside it's allowed scope
+            </summary>
+            <remarks>
+            This exception is raised when a Column that is associated with an <see cref="T:Firefly.Box.Data.Entity"/> is used, in one of the following cases:
+            <list type="bullet">
+            <item>
+            The column was not added to the Columns Collection.
+            </item></list> 
+            Posible solution - Try adding the column to the task using the Columns.<see cref="!:IColumnsCollection.Add"/> method.
+            </remarks>
+        </member>
+        <member name="T:Firefly.Box.Advanced.FromNotSetInTreeViewTaskException">
+            <summary>
+            Thrown if a <see cref="T:Firefly.Box.UI.Form"/> containing a <see cref="T:Firefly.Box.UI.TreeView"/> 
+            is attached to a <see cref="T:Firefly.Box.UIController"/> which does not have its <see cref="P:Firefly.Box.UIController.From"/> property set
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Advanced.Comparer">
+            <summary>
+            This class is used to compare any two objects while gracefully handling null in either one of them.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Advanced.Comparer.Compare(System.Object,System.Object)">
+            <summary>
+            compare two objects, while gracefully handle null in either one of them
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns>1 if a is greater than b, -1 if a is less then b and 0 if they are equal</returns>
+        </member>
+        <member name="M:Firefly.Box.Advanced.Comparer.Compare(System.Object,System.Object,System.Boolean)">
+            <summary>
+            compare two objects, while gracefully handle null in either one of them
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns>1 if a is greater than b, -1 if a is less then b and 0 if they are equal</returns>
+        </member>
+        <member name="T:Firefly.Box.Advanced.DataTypeBase">
+            <summary>
+            The base type of any type in Firefly.Box
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Advanced.ExpandSettings">
+            <summary>
+            Represents settings that apply to the <see cref="E:Firefly.Box.Data.Advanced.ColumnBase.Expand"/>'s event on a <see cref="T:Firefly.Box.Data.Advanced.ColumnBase"/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Advanced.ExpandSettings.BindEnabled(System.Func{System.Boolean})">
+            <summary>
+            When evaluates to true, the <see cref="E:Firefly.Box.Data.Advanced.ColumnBase.Expand"/> is enabled
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Advanced.ExpandSettings.AfterExpandGoToNextControl">
+            <summary>
+            When set to true, after the <see cref="E:Firefly.Box.Data.Advanced.ColumnBase.Expand"/> completes, the <see cref="T:Firefly.Box.UIController"/> will automatically perform <see cref="F:Firefly.Box.Command.GoToNextControl"/>
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Advanced.HandlerInvokeHandler">
+            <summary>
+            Represents the method that will be invoked by the <see cref="T:Firefly.Box.Handler"/>
+            </summary>
+            <param name="e">The event args for this delegate</param>
+            /// <MYEXAMPLE code="HandlerScopeDemo"></MYEXAMPLE>
+        </member>
+        <member name="T:Firefly.Box.Advanced.HandlerInvokeEventArgs">
+            <summary>
+            Provides data for the handling of an event
+            </summary>
+            <MYEXAMPLE code="HandlerScopeDemo"></MYEXAMPLE>
+        </member>
+        <member name="P:Firefly.Box.Advanced.HandlerInvokeEventArgs.Handled">
+            <summary>
+            Determines whether or not to allow other handlers to process this event. When set to false, no other handler will be activated
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Advanced.ITask">
+            <summary>
+            Represent a task in the tasks call stack
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Advanced.ITask.View">
+            <summary>
+            The <This/>'s <returnType/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Advanced.ITask.Activity">
+            <summary>
+            Returns the <This/>'s Activity
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Advanced.ITask.Title">
+            <summary>
+            Returns the <This/>'s title
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Advanced.ITask.Columns">
+            <summary>
+            Return an <returnType/> that contains all the columns selected in the <see cref="T:Firefly.Box.Advanced.ITask"/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Advanced.ITask.CurrentHandledCommand">
+            <summary>
+            Return the currently handled command
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Firefly.Box.Advanced.ITask.CurrentHandledKey">
+            <summary>
+            Return the currently handled key combination
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Firefly.Box.Advanced.ITask.CurrentHandledControl">
+            <summary>
+            Return the currently handled control
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Firefly.Box.Advanced.UIOptions">
+            <summary>
+            Provides options for the <see cref="T:Firefly.Box.UIController"/>.<see cref="M:Firefly.Box.UIController.SaveRowAndDo(System.Action{Firefly.Box.Advanced.UIOptions})"/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Advanced.UIOptions.ReloadData">
+            <summary>
+            The <see cref="T:Firefly.Box.UIController"/> will reload all the data according to the specified <see cref="P:Firefly.Box.UIController.Where"/> and <see cref="P:Firefly.Box.UIController.OrderBy"/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Advanced.UIOptions.GoToDefaultRow">
+            <summary>
+            The <see cref="T:Firefly.Box.UIController"/> will navigate to the first row that matches the <see cref="P:Firefly.Box.UIController.Where"/>. If the <see cref="P:Firefly.Box.UIController.StartFromLastRow"/> is set to true, it'll park on the last row that matches the <see cref="P:Firefly.Box.UIController.Where"/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Advanced.UIOptions.GoToLastRow">
+            <summary>
+            The <see cref="T:Firefly.Box.UIController"/> will navigate to the last row that matches the <see cref="P:Firefly.Box.UIController.Where"/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Advanced.UIOptions.GoToFirstRow">
+            <summary>
+            The <see cref="T:Firefly.Box.UIController"/> will navigate to the first row that matches the <see cref="P:Firefly.Box.UIController.Where"/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Advanced.UIOptions.GoToPreviouslyParkedRow">
+            <summary>
+            The <see cref="T:Firefly.Box.UIController"/> will try to return to the row on which it parked, before the <see cref="M:Firefly.Box.UIController.SaveRowAndDo(System.Action{Firefly.Box.Advanced.UIOptions})"/> was called
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Advanced.UIOptions.GoToRowAccordingToStartOnRowWhere">
+            <summary>
+            The <see cref="T:Firefly.Box.UIController"/> will navigate to the first row according to the: 
+            <see cref="P:Firefly.Box.UIController.StartOnRowWhere"/> and <see cref="P:Firefly.Box.UIController.StartFromLastRow"/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Advanced.UIOptions.GoToRow(Firefly.Box.Data.Advanced.FilterBase)">
+            <summary>
+            The <see cref="T:Firefly.Box.UIController"/> will park on the first row that matches the filter specified in the <paramref name="usingThisFilter"/> parameter
+            </summary>
+            <param name="usingThisFilter">The filter according to which the required row will be found</param>
+        </member>
+        <member name="M:Firefly.Box.Advanced.UIOptions.GoToRow(Firefly.Box.Data.Advanced.FilterBase,System.Boolean)">
+            <summary>
+            The <see cref="T:Firefly.Box.UIController"/> will park on the first row that matches the filter specified in the <paramref name="usingThisFilter"/> parameter
+            </summary>
+            <param name="usingThisFilter">The filter according to which the required row will be found</param>
+        </member>
+        <member name="T:Firefly.Box.SortDirection">
+            <summary>
+            Specifies the direction in which to sort rows.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.SortDirection.Ascending">
+            <summary>
+            Sort from smallest to largest. For example, from A to Z.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.SortDirection.Descending">
+            <summary>
+            Sort from largest to smallest. For example, from Z to A.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Sort">
+            <summary>
+            Represents a definition of how to sort rows
+            </summary>
+            <MYEXAMPLE code="DemoOrderBy"></MYEXAMPLE>
+        </member>
+        <member name="T:Firefly.Box.SortSegment">
+            <summary>
+            Represents a segment in a <see cref="T:Firefly.Box.Sort"/>
+            </summary>
+            <MYEXAMPLE code="DemoOrderBy"></MYEXAMPLE>
+            <MYEXAMPLE code="ReversedSort"></MYEXAMPLE>
+        </member>
+        <member name="P:Firefly.Box.SortSegment.Column">
+            <summary>
+            Gets the <ReturnType/> of this <This/>
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.TransactionScopes">
+            <summary>
+            Represents the deferent types of transaction scopes. See <Transactions/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.TransactionScopes.LeaveRow">
+            <summary>
+            Represents a row transaction scope. The transaction will begin before the LeaveRow event, and will end after the row was saved to the database.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.TransactionScopes.SavingRow">
+            <summary>
+            Represents a row transaction scope. The transaction will begin before the SavingRow event - only if the row was changed, and will end after the row was saved to the database.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.TransactionScopes.SaveToDatabase">
+            <summary>
+            Represents a row transaction scope. The transaction will begin before the row is saved to the database and will end immediately afterwards.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.TransactionScopes.None">
+            <summary>
+            No Transaction will be used for this process
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.TransactionScopes.RowLocking">
+            <summary>
+            Represents an on lock transaction scope. The transaction will begin before The lock is initiated (according to the <see name="LockingStrategy"/>
+             and end after the row was saved to the database.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.TransactionScopes.Row">
+            <summary>
+            Represents a row transaction scope. The transaction will begin before the EnterRow event, and will end after the row was saved to the database.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.TransactionScopes.Task">
+            <summary>
+            Represents a task transaction scope. This transaction scope includes the entire task. The transaction will begin before the Start event, and end after the End event. 
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.TransactionScopes.Group">
+            <summary>
+            Represents a task transaction scope. Availabe only in <t_BusinessProcess/>. This transaction scope includes the all the rows in the group specified. The transaction will begin before the Enter event, and end after the Leave event. 
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.TransactionScopesStrategy">
+            <summary>
+            The base class for all transaction scope classes. Please use one of the deriving inner classes
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.TransactionScopesStrategy.None">
+            <summary>
+            No Transaction will be used for this process
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.TransactionScopesStrategy.Task">
+            <summary>
+            Represents a task transaction scope. The transaction will begin before the <see cref="!:Task.Start"/> event, and end after the <see cref="!:Task.End"/> event.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.TransactionScopesStrategy.Row">
+            <summary>
+            Represents a row transaction scope. The transaction will begin before the <see cref="!:Task.EnterRow"/> event, and end after the row was saved to the database.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.TransactionScopesStrategy.Row.#ctor">
+            <summary>
+            Determines what to do when a rollback happens.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.TransactionScopesStrategy.OnLock">
+            <summary>
+            Represents an on lock transaction scope. The transaction will begin before The lock is initiated (according to the <see name="LockingStrategy"/>
+             and end after the row was saved to the database.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.TransactionScopesStrategy.OnLock.#ctor">
+            <summary>
+            Determines what to do when a rollback happens.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.TransactionScopesStrategy.BeforeLeaveRow">
+            <summary>
+            Represents a row transaction scope. The transaction will begin before the <see cref="!:Task.LeaveRow"/> event, and end after the row was saved to the database.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.TransactionScopesStrategy.BeforeLeaveRow.#ctor">
+            <summary>
+            Determines what to do when a rollback happens.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.TransactionScopesStrategy.BeforeSavingRow.#ctor">
+            <summary>
+            Determines what to do when a rollback happens.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.TransactionScopesStrategy.BeforeSaveToDatabase">
+            <summary>
+            Represents a row transaction scope. The transaction will begin before the row is saved to the database and will end immediately afterwards.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.TransactionScopesStrategy.BeforeSaveToDatabase.#ctor">
+            <summary>
+            Determines what to do when a rollback happens.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UnderConstruction.DataSource">
+            <summary>
+            Used to combine FireflyBox dataAccess and business logic capabilities with regular .Net data binding.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.UnderConstruction.DataSource.AddDataMember(System.String,Firefly.Box.Data.Advanced.ColumnBase)">
+            <summary>
+            Used to manually add another data member to the dataview exposed to the bindingSource
+            </summary>
+            <param name="name">The name that will represent the data member</param>
+            <param name="column">The bound column</param>
+        </member>
+        <member name="M:Firefly.Box.UnderConstruction.DataSource.FetchData">
+            <summary>
+            Loads all the rows according to the <see cref="P:Firefly.Box.UnderConstruction.DataSource.Where"/>
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UnderConstruction.DataSourceBase">
+            <summary>
+            Used to combine Firefly.Box data access and business logic capabilities with regular .Net data binding.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.UnderConstruction.DataSourceBase.AddDataMember(System.String,Firefly.Box.Data.Advanced.ColumnBase)">
+            <summary>
+            Adds a <paramref name="column"/> to this <This/>
+            </summary>
+            <param name="name">The name that will identify the <paramref name="column"/></param>
+            <param name="column">The column to add</param>
+        </member>
+        <member name="M:Firefly.Box.UnderConstruction.DataSourceBase.GetNameOf(Firefly.Box.Data.Advanced.ColumnBase)">
+            <param name="column">The column who's name is to be returned</param>
+            <returns>The name of the <paramref name="column"/> </returns>
+        </member>
+        <member name="M:Firefly.Box.UnderConstruction.DataSourceBase.Run">
+            <summary>
+            Runs the <This/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.UnderConstruction.DataSourceBase.FetchData">
+            <summary>
+            Loads all the rows according to the <see cref="T:WizardOfOz.Witch.DataAccess.Filter"/>
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Group">
+             <summary>
+             Returned by <see cref="T:Firefly.Box.BusinessProcess"/>.<see cref="P:Firefly.Box.BusinessProcess.Groups"/> to group on a column.
+             </summary>
+            <remarks>
+             This interface represents the commands that will be invoked when the columns value is changed.
+             Read <see cref="P:Firefly.Box.BusinessProcess.Groups"/> for more information.
+             </remarks>
+             <GroupDemo/>
+        </member>
+        <member name="E:Firefly.Box.Group.Enter">
+            <summary>
+            Fired when the value monitored by <see cref="P:Firefly.Box.BusinessProcess.Groups"/>  was changed.
+            The value visible is the new value
+            </summary>
+            <GroupDemo/>
+        </member>
+        <member name="E:Firefly.Box.Group.Leave">
+            <summary>
+            Fired when the value monitored by <see cref="P:Firefly.Box.BusinessProcess.Groups"/> is about to change.
+            The value visible is the old value. <seealso cref="P:Firefly.Box.BusinessProcess.Groups"/>
+            </summary>
+            <GroupDemo/>
+        </member>
+        <member name="T:Firefly.Box.Printing.PrinterWriter">
+            <summary>
+            Used to write reports to a graphical windows printer. 
+            </summary>
+            <seealso cref="T:Firefly.Box.Printing.ReportSection"/> <seealso cref="T:Firefly.Box.Printing.ReportLayout"/>
+        </member>
+        <member name="P:Firefly.Box.Printing.PrinterWriter.HeightUntilEndOfPage">
+            <summary>
+            Returns the height in pixels until the end of the current page
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Printing.PrinterWriter.HeightFromStartOfPage">
+            <summary>
+            Return the height in pixels from the start of the current page
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Printing.PrinterWriter.PageHeight">
+            <summary>
+            Gets the total height in pixel of the current page
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Printing.ReportLayout">
+            <summary>
+            Used as a container for several <see cref="T:Firefly.Box.Printing.ReportSection"/>
+            </summary>
+            <remarks>
+            <this/> is used mainly to visualize several sections of a report, within the Visual Studio's Forms designer.
+            </remarks>
+        </member>
+        <member name="T:Firefly.Box.Printing.ReportSection">
+            <summary>
+            A report section used for printing reports to the <see cref="T:Firefly.Box.Printing.PrinterWriter"/>
+            </summary>
+            <remarks>
+            Any firefly control can be added to a <this/> and be used within a report.
+            </remarks>
+        </member>
+        <member name="P:Firefly.Box.Printing.ReportSection.AllowExpandableControls">
+            <summary>
+            When set to true, <see cref="T:Firefly.Box.UI.TextBox"/> that contains variable length text, will increase in height to accommodate it's content
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Printing.ReportSection.SplitForPageBreak">
+            <summary>
+            When set to true, and the <see cref="P:Firefly.Box.Printing.ReportSection.AllowExpandableControls"/> is also set to true, <see cref="T:Firefly.Box.UI.TextBox"/> that require more height do to it's content, will split among pages as needed
+            </summary>
+        </member>
+        <member name="E:Firefly.Box.Printing.ReportSection.Print">
+            <summary>
+            Occurs whenever this <This/> is written to a <see cref="T:Firefly.Box.Printing.PrinterWriter"/>. 
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.ExitTiming">
+            <summary>
+            Used to determine the timing in which a task is exited.
+            </summary>
+            <MYEXAMPLE code="Exit">Usage of exit</MYEXAMPLE>
+        </member>
+        <member name="F:Firefly.Box.ExitTiming.BeforeRow">
+            <summary>
+            After the row is loaded, but before the EnterRow event.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.ExitTiming.AfterRow">
+            <summary>
+            After the row is saved to the Database
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.ExitTiming.AsSoonAsPossible">
+             <summary>
+             As soon as possible
+             </summary>
+            <remarks>
+             If the row was not loaded yet, it behaves the same as <see cref="F:Firefly.Box.ExitTiming.BeforeRow"/>. 
+             Otherwise it will be checked after each action the user performs, or when the row is left.
+             </remarks>
+        </member>
+        <member name="T:Firefly.Box.CustomCommandAllowInvokeByKey">
+            <summary>
+            Determines the scope in which the <see cref="T:Firefly.Box.CustomCommand"/> can be invoked using it's <see cref="P:Firefly.Box.CustomCommand.Key"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.CustomCommandAllowInvokeByKey.FromSameModuleOnly">
+            <summary>
+            Only tasks that belong to the same <see cref="T:Firefly.Box.Advanced.ModuleController"/> as the task to which the <see cref="T:Firefly.Box.Handler"/> belongs
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.CustomCommandAllowInvokeByKey.Always">
+            <summary>
+            Any task
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.CustomCommand">
+            <summary>
+            This class represents a user defined command. 
+            </summary>
+            <remarks>This command can be raised using the <see cref="!:UIController.Raise(CustomCommand,object[])"/> and can be handled using the <see cref="!:HandlerCollection.Add(CommandBase)"/>
+            </remarks>
+            <MYEXAMPLE code="DeferenceBetweenRaiseAndInvoke">Demo raise and invoke of custom command</MYEXAMPLE>
+        </member>
+        <member name="T:Firefly.Box.CustomCommandPrecondition">
+            <summary>
+            Used by <see cref="T:Firefly.Box.CustomCommand"/> for determining what to do before a <see cref="T:Firefly.Box.CustomCommand"/> is handled
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.CustomCommandPrecondition.None">
+            <summary>
+            Nothing
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.CustomCommandPrecondition.SaveControlDataToColumn">
+            <summary>
+            Saves the current control's data to the column
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.CustomCommandPrecondition.LeaveControl">
+            <summary>
+            Leave the current control and make sure that the column is updated with the current data in the control. 
+            After the handler is Executed return to the current control.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.CustomCommandPrecondition.LeaveRow">
+            <summary>
+            Leave the current row and make sure that the Database is updated with it's current values.
+            after the handler is Executed return to the current row.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.CustomCommandPrecondition.LeaveRowAndSaveToDatabaseAfterHandlerInvokation">
+            <summary>
+            Leave the current control, perform the <see cref="E:Firefly.Box.UIController.SavingRow"/> event, and the perform the handler.
+            After the handler is executed the row is saved to the database, and reEnters.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Command.Expression(System.Func{System.Boolean})">
+            <summary>
+            Creates an expression listener to be used by the <see cref="!:HandlerCollection.Add(CommandBase)"/>
+            </summary>
+            <param name="condition">the condition expression</param>
+            <returns>A <see cref="!:CommandBase"/> that is used by the <see cref="!:HandlerCollection.Add(CommandBase)"/></returns>
+            <remarks>Whenever the <par_0/> evaluates to true, the handler's <see cref="E:Firefly.Box.Handler.Invokes"/> event will be raised</remarks>
+        </member>
+        <member name="M:Firefly.Box.Command.CreateTimer(System.Int32)">
+            <summary>
+            Creates an time based listener to be used by the <see cref="!:HandlerCollection.Add(CommandBase)"/>
+            </summary>
+            <param name="seconds">the interval in seconds</param>
+            <returns>A <see cref="!:CommandBase"/> that is used by the <see cref="!:HandlerCollection.Add(CommandBase)"/></returns>
+            <remarks>
+            When ever the interval declared in the <par_0/> parameter is reached, the handler's <see cref="E:Firefly.Box.Handler.Invokes"/> event will be raised
+            </remarks>
+        </member>
+        <member name="F:Firefly.Box.Command.ExpandTreeNode">
+            <summary>
+            Occurs when a <see cref="T:Firefly.Box.UI.TreeView"/> node is expanded
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.CollapseTreeNode">
+            <summary>
+            Occurs when a <see cref="T:Firefly.Box.UI.TreeView"/> node is collapsed
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.InsertChildNode">
+            <summary>
+            Inserts a new row as a child of the current row in a <see cref="T:Firefly.Box.UI.TreeView"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.GoToFirstChildNode">
+            <summary>
+            Selects the first child node of the current row in a <see cref="T:Firefly.Box.UI.TreeView"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.BeginEditingTreeNodeCaption">
+            <summary>
+            Begins editing the caption of the currently selected <see cref="T:Firefly.Box.UI.TreeView"/> node
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.Click">
+            <summary>
+            Happens after the <see cref="!:Firefly.Box.UI.Advanced.ControlBase.MouseUp"/> event
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.DoubleClick">
+            <summary>
+            Happens after the <see cref="!:Firefly.Box.UI.Advanced.ControlBase.DoubleClick"/> event
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.MouseEnter">
+            <summary>
+            Happens after the <see cref="!:Firefly.Box.UI.Advanced.ControlBase.MouseEnter"/> event
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.MouseLeave">
+            <summary>
+            Happens after the <see cref="!:Firefly.Box.UI.Advanced.ControlBase.MouseLeave"/> event
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.BeforeControlClick">
+            <summary>
+            Happens when the mouse is down and before the navigation to the clicked control. 
+            </summary>
+            <remarks>
+            By handling this <see cref="T:Firefly.Box.Command"/> with <see cref="P:Firefly.Box.Advanced.HandlerInvokeEventArgs.Handled"/> false, the clicked control will not get focus.
+            </remarks>
+        </member>
+        <member name="F:Firefly.Box.Command.BeforeWindowClick">
+            <summary>
+            Happens when the mouse is down and before the navigation to the clicked window. /// 
+            </summary>
+            <remarks>
+            By handling this <see cref="T:Firefly.Box.Command"/> with <see cref="P:Firefly.Box.Advanced.HandlerInvokeEventArgs.Handled"/> false, the clicked window will not get focus.
+            </remarks>
+        </member>
+        <member name="F:Firefly.Box.Command.SetFocusedControlValueSameAsInPreviousRow">
+            <summary>
+            Copies the value of a column in a new row, from the previous row.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.PlaceCursorAtEndOfTextBox">
+            <summary>
+            Places the cursor after the last character of a textbox
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.PlaceCursorAtStartOfTextBox">
+            <summary>
+            Places the cursor before the first character of a textbox
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.PlaceCursorAtStartOfLine">
+            <summary>
+            Places the cursor before the first character of the current line in a multiline textbox
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.PlaceCursorAtEndOfLine">
+            <summary>
+            Places the cursor after the last character of the current line in a multiline textbox
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.PlaceCursorAfterNextCharacter">
+            <summary>
+            Places the cursor after the next character of a textbox
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.PlaceCursorBeforePreviousCharacter">
+            <summary>
+            Places the cursor before the previous character of a textbox
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.PlaceCursorBeforeNextWord">
+            <summary>
+            Places the cursor before the next word of a textbox
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.PlaceCursorBeforeWord">
+            <summary>
+            Places the cursor before the current word of a textbox
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.SelectNextCharacter">
+            <summary>
+            Selects the following character of a textbox
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.SelectToFirstCharacter">
+            <summary>
+            Selects all characters of a textbox until the current carret position
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.SelectToLastCharacter">
+            <summary>
+            Selects all characters of a textbox from the current carret position until the last character
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.DeleteNextCharacter">
+            <summary>
+            Deletes the following character of a textbox
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.UndoEditing">
+            <summary>
+            Returns the data in the control to the state it was before the control was entered
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.Copy">
+            <summary>
+            Performs copy
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.Paste">
+            <summary>
+            Performs Paste
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.Cut">
+            <summary>
+            Performs Cut
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.SelectAll">
+            <summary>
+            Selects all the characters in a textbox
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.ExpandTextBox">
+            <summary>
+            Displays a small form enabling the user to edit the textbox with more room.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.GoToFirstRow">
+            <summary>
+            Moves the cursor to the first row that fits the <see cref="P:Firefly.Box.UIController.Where"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.GoToFirstControl">
+            <summary>
+            Navigates to the first control acording to the <see cref="P:Firefly.Box.UI.Advanced.ControlBase.TabIndex"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.InsertRow">
+            <summary>
+            Inserts a new row after the currently parked row
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.DeleteRow">
+            <summary>
+            Deletes the current parked row
+            </summary>
+            <MYEXAMPLE code="DemoRaiseDelete">Raising and handling of delete command</MYEXAMPLE>
+        </member>
+        <member name="F:Firefly.Box.Command.GoToLastRow">
+            <summary>
+            Moves the cursor to the last row that fits the <see cref="P:Firefly.Box.UIController.Where"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.GoToLastControl">
+            <summary>
+            Navigates to the last control acording to the <see cref="P:Firefly.Box.UI.Advanced.ControlBase.TabIndex"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.GoToNextControl">
+            <summary>
+            Navigates to the next control acording to the <see cref="P:Firefly.Box.UI.Advanced.ControlBase.TabIndex"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.GoToNextRow">
+            <summary>
+            Moves the cursor to the next row that fits the <see cref="P:Firefly.Box.UIController.Where"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.GoToNextPage">
+            <summary>
+            Moves the cursor to the last row on the grid. If already parked on that row, advances to view by the number of visible rows on the grid
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.GoToPreviousControl">
+            <summary>
+            Navigates to the previous control acording to the <see cref="P:Firefly.Box.UI.Advanced.ControlBase.TabIndex"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.GoToPreviousRow">
+            <summary>
+            Moves the cursor to the previous row that fits the <see cref="P:Firefly.Box.UIController.Where"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.GoToPreviousPage">
+            <summary>
+            Moves the cursor to the first row on the grid. If already parked on that row, advances to view by the number of visible rows on the grid
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.UndoChangesInRow">
+            <summary>
+            Undo all the changes performed to the current row, since it was loaded.
+            </summary>
+            <remark>
+            After the event, the row will then re enter performing the <see cref="E:Firefly.Box.UIController.EnterRow"/> event
+            </remark>
+        </member>
+        <member name="F:Firefly.Box.Command.Exit">
+            <summary>
+            Ends the task
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.CloseForm">
+            <summary>
+            The user tries to close the form
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.UndoChangesInRowAndExit">
+            <summary>
+            Undo all the changes and ends the task. 
+            </summary>
+            <remarks>
+            Similar to raisung the <see cref="F:Firefly.Box.Command.UndoChangesInRow"/> <see cref="T:Firefly.Box.Command"/> and then the <see cref="F:Firefly.Box.Command.Exit"/> <see cref="T:Firefly.Box.Command"/>. 
+            The only deference is that the <see cref="E:Firefly.Box.UIController.EnterRow"/> event will not happen between the undo, and the exit.
+            </remarks>
+        </member>
+        <member name="F:Firefly.Box.Command.SetFocusedControlValueToNull">
+            <summary>
+            Sets the value of the currently edited control to null.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.Expand">
+            <summary>
+            Used to display additional data on a certain control, or to display a selection list. 
+            </summary>
+            <remarks>
+            Triggered by the keyboard shortcut or double clicking a control.
+            </remarks>
+            <seealso cref="E:Firefly.Box.Data.Advanced.ColumnBase.Expand"/>
+            <seealso cref="F:Firefly.Box.Flow.FlowMode.ExpandAfter"/>
+            <seealso cref="F:Firefly.Box.Flow.FlowMode.ExpandBefore"/>
+        </member>
+        <member name="F:Firefly.Box.Command.ExitApplication">
+            <summary>
+            Exit all open tasks and terminate the application.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.SwitchToInsertActivity">
+            <summary>
+            Switches the current Activity to <see cref="F:Firefly.Box.Activities.Insert"/>
+            </summary>
+            <MYEXAMPLE code="DemoSwitchActivities">Switch Activities</MYEXAMPLE>
+        </member>
+        <member name="F:Firefly.Box.Command.SwitchToBrowseActivity">
+            <summary>
+            Switches the current Activity to <see cref="F:Firefly.Box.Activities.Browse"/>
+            </summary>
+            <MYEXAMPLE code="DemoSwitchActivities">Switch Activities</MYEXAMPLE>
+        </member>
+        <member name="F:Firefly.Box.Command.SwitchToUpdateActivity">
+            <summary>
+            Switches the current Activity to <see cref="F:Firefly.Box.Activities.Update"/>
+            </summary>
+            <MYEXAMPLE code="DemoSwitchActivities">Switch Activities</MYEXAMPLE>
+        </member>
+        <member name="F:Firefly.Box.Command.SaveCurrentRow">
+            <summary>
+            Saves the current row to the database
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.RepaintForm">
+            <summary>
+            Causes the Form to invalidate, and it's entire content redrawn.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.ReloadData">
+            <summary>
+            Reload the data of the task from the database.
+            </summary>
+            <remarks> This action can accept parameters when raised by the <see cref="M:Firefly.Box.UIController.Raise(Firefly.Box.Command,System.Object[])"/> method.
+            The Only parameter is of type <see cref="T:Firefly.Box.Number"/>.<br/>
+            It's allowed values are:
+            <list type="table">
+            <listheader>
+            <term>Value</term>
+            <description>Behaviour</description>
+            </listheader>
+            <item><term>1</term><description> Reload data and park on row according to the filter in  <see cref="P:Firefly.Box.UIController.StartOnRowWhere"/>.</description></item>
+            <item><term>2</term><description> Reload data and park to the first row.</description></item>
+            <item><term>Default</term><description> Reload data and park on current row.</description></item>
+            </list>
+            </remarks>
+            <MYEXAMPLE code="DemoReloadData">Reload data behaviour</MYEXAMPLE>
+        </member>
+        <member name="F:Firefly.Box.Command.RefreshDisplayedData">
+            <summary>
+            Reloads all the rows displayed on the current form.
+            </summary>
+            <MyExample code="DocReloadDisplayDataAfterLeaveRow" pubs="Y" UITools = "Y"></MyExample>
+        </member>
+        <member name="F:Firefly.Box.Command.SelectNextTabPage">
+            <summary>
+            Selects the next tab page of a <see cref="T:Firefly.Box.UI.TabControl"/> that is on the current Form
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Command.SelectPreviousTabPage">
+            <summary>
+            Selects the previous tab page of a <see cref="T:Firefly.Box.UI.TabControl"/> that is on the current Form
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Command.Enabled">
+            <summary>
+            Gets a value indicating whether the <Type/> is Enabled.
+            </summary>
+        </member>
+        <member name="E:Firefly.Box.Command.EnabledChanged">
+            <summary>
+            Occurs when the <see cref="P:Firefly.Box.Command.Enabled"/> property has changed.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Command.Name">
+            <summary>
+            The <see cref="T:Firefly.Box.Command"/> Name
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Command.FindCommandByName(System.String)">
+            <summary>
+            Returns a <see cref="T:Firefly.Box.Command"/> that matches the <paramref name="commandName"/>
+            If none is found, return null.
+            </summary>
+            <param name="commandName">The command name</param>
+            <returns>The found command</returns>
+        </member>
+        <member name="P:Firefly.Box.Command.Shortcut">
+            <summary>
+            Gets or sets a value indicating the shortcut key for this command.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Command.AdditionalShortcuts">
+            <summary>
+            Gets or sets an array of additional shortcut keys for this command.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Flow.FlowMode">
+            <summary>
+            Determines the navigation mode between controls.
+            </summary>
+            <remarks>
+            Usually used with <see cref="T:Firefly.Box.UIController"/> using object return by the <see cref="M:Firefly.Box.UIController.AdvancedSettings.UseUserFlow"/> method.
+            </remarks>
+            <MYEXAMPLE code="DemoFlowMode">FlowMode</MYEXAMPLE>
+        </member>
+        <member name="F:Firefly.Box.Flow.FlowMode.Tab">
+            <summary>
+            The user is navigating between columns using the <see cref="F:Firefly.Box.Command.GoToNextControl"/> or <see cref="F:Firefly.Box.Command.GoToPreviousControl"/> commands, which are mapped by default to the Tab and Shift Tab keys accordingly.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Flow.FlowMode.Skip">
+            <summary>
+            The user is either navigating using the mouse in the current row or leaving the current row.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Flow.FlowMode.TabOrSkip">
+            <summary>
+            A combination of <see cref="F:Firefly.Box.Flow.FlowMode.Tab"/> and <see cref="F:Firefly.Box.Flow.FlowMode.Skip"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Flow.FlowMode.ExpandBefore">
+            <summary>
+            When the user is parked on the next selected column and invokes the <see cref="F:Firefly.Box.Command.Expand"/> <see cref="T:Firefly.Box.Command"/>. After the <see cref="T:Firefly.Box.Command"/> execution, th user will return to the property that originated the <see cref="F:Firefly.Box.Command.Expand"/> <see cref="T:Firefly.Box.Command"/>.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Flow.FlowMode.ExpandAfter">
+            <summary>
+            When the user is parked on the previous selected propert and invokes the <see cref="F:Firefly.Box.Command.Expand"/> <see cref="T:Firefly.Box.Command"/>. After the <see cref="T:Firefly.Box.Command"/> execution the user will park on the next column.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Flow.Direction">
+            <summary>
+            Used to specifiy the direction of the user navigation between controls, acording to their <see cref="P:Firefly.Box.UI.Advanced.ControlBase.TabIndex"/>
+            .TabIndex"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Flow.Direction.Forward">
+            <summary>
+            Forward in ascending order.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Flow.Direction.Backward">
+            <summary>
+            Backward in descending order
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Flow.Direction.Any">
+            <summary>
+            Means that the direction doesn't matter
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Firefly.Box.Flow.CachedTask`1" -->
+        <member name="M:Firefly.Box.Flow.CachedTask`1.#ctor(System.Func{`0},System.Func{`0,Firefly.Box.UIController})">
+            <param name="createInstance">A methods that creates a new task instance.</param>
+        </member>
+        <member name="P:Firefly.Box.Flow.CachedTask`1.Instance">
+            <summary>
+            This property is used to get the instance of the task.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Flow.UserFlowDisabledException">
+            <summary>
+            Thrown if the object returned from <see cref="M:Firefly.Box.UIController.AdvancedSettings.UseUserFlow"/> is used 
+            before the <see cref="T:Firefly.Box.UIController"/> object is constructed
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Flow.NoColumnToFocusException">
+            <summary>
+            Occurs within the <see cref="T:Firefly.Box.UIController"/> when non of the associated columns can be focused.
+            
+            Make sure that the needed columns are selected and are attached to an <see cref="T:Firefly.Box.UI.Advanced.InputControlBase"/>
+            </summary>
+            <remarks>
+            This exception is raised when a <see cref="T:Firefly.Box.UIController"/> for which the <see cref="M:Firefly.Box.UIController.AdvancedSettings.UseUserFlow"/> method was called,
+             either because no column in the column's array is associated with a control, or the control can't be focused.
+            </remarks>
+        </member>
+        <member name="T:Firefly.Box.Flow.IFlowVisitor">
+            <summary>
+            Used to determine the current user state in the <see cref="T:Firefly.Box.UIController"/>'s <see cref="!:UIController.Flow"/>
+            </summary>
+            <remarks>
+            Rarely, if ever, used.
+            </remarks>
+        </member>
+        <member name="M:Firefly.Box.Flow.IFlowVisitor.TabForward">
+            <summary>
+            Will be called if the user is currently navigating the <see cref="T:Firefly.Box.Flow.UserFlow"/> using the <see cref="F:Firefly.Box.Command.GoToNextControl"/> <see cref="T:Firefly.Box.Command"/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Flow.IFlowVisitor.TabBackward">
+            <summary>
+            Will be called if the user is currently navigating the <see cref="T:Firefly.Box.Flow.UserFlow"/> using the <see cref="F:Firefly.Box.Command.GoToPreviousControl"/> <see cref="T:Firefly.Box.Command"/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Flow.IFlowVisitor.SkipForward">
+            <summary>
+            will be called if the user is currently navigating the <see cref="T:Firefly.Box.Flow.UserFlow"/> using the mouse to click on another column or before the <see cref="E:Firefly.Box.UIController.SavingRow"/> event is performed
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Flow.IFlowVisitor.SkipBackward">
+            <summary>
+            will be called if the user is currently navigating the <see cref="T:Firefly.Box.Flow.UserFlow"/> using the mouse to click on another column 
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Flow.IFlowVisitor.Select">
+            <summary>
+            Will be called if the user has invoked the <see cref="F:Firefly.Box.Command.Select"/> <see cref="T:Firefly.Box.Command"/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Flow.IFlowVisitor.Cancel">
+            <summary>
+            Will be called if the user has invoked the <see cref="F:Firefly.Box.Command.UndoChangesInRow"/> <see cref="T:Firefly.Box.Command"/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Flow.IFlowVisitor.None">
+            <summary>
+            Will be called if the user is in an unknown state
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Flow.UserFlow">
+             <summary>
+             Used to determine the user flow within the <see cref="T:Firefly.Box.UIController"/>
+            </summary>
+             <remarks>
+             This interface is returned by calling the <see cref="M:Firefly.Box.UIController.AdvancedSettings.UseUserFlow"/> method.<br/>
+             For more information see <see cref="M:Firefly.Box.UIController.AdvancedSettings.UseUserFlow"/>.
+             
+             Each <see cref="T:System.Action"/>s added to the flow will be executed according to the order in which they were added, and according to the user navigation between the selected columns.
+             </remarks>
+             <seealso cref="T:Firefly.Box.UIController"/>
+             <seealso cref="M:Firefly.Box.UIController.AdvancedSettings.UseUserFlow"/>
+             <seealso cref="T:Firefly.Box.Flow.Direction"/>
+             <seealso cref="T:Firefly.Box.Flow.FlowMode"/>
+             <MyExample code="FlowUIControllerDemo">Basic usage of Flow UIController</MyExample>
+             <MYEXAMPLE code="DemoFlowMode"></MYEXAMPLE>
+        </member>
+        <member name="M:Firefly.Box.Flow.UserFlow.StartBlockElse(System.Func{System.Boolean})">
+            <summary>
+            Begins an else section of the block. This section will only be executed if the previous <see cref="M:Firefly.Box.Flow.UserFlow.StartBlock(System.Func{System.Boolean},Firefly.Box.Flow.FlowMode,Firefly.Box.Flow.Direction)"/>'s or <see cref="M:Firefly.Box.Flow.UserFlow.StartBlockElse(System.Func{System.Boolean})"/>'s condition returned false.
+            <seealso cref="M:Firefly.Box.Flow.UserFlow.StartBlock(System.Func{System.Boolean},Firefly.Box.Flow.FlowMode,Firefly.Box.Flow.Direction)"/>
+            <seealso cref="M:Firefly.Box.Flow.UserFlow.EndBlock"/>
+            </summary>
+            <param name="condition">The condition that will determine if the block will be executed</param>
+        </member>
+        <member name="M:Firefly.Box.Flow.UserFlow.EndBlock">
+            <summary>
+            Ends a block started by the <see cref="M:Firefly.Box.Flow.UserFlow.StartBlock(System.Func{System.Boolean},Firefly.Box.Flow.FlowMode,Firefly.Box.Flow.Direction)"/> method or the <see cref="M:Firefly.Box.Flow.UserFlow.StartBlockElse"/> method
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Flow.UserFlow.StartBlockElse">
+            <summary>
+            Begins an else section of the block. This section will only be executed if the previous <see cref="M:Firefly.Box.Flow.UserFlow.StartBlock(System.Func{System.Boolean},Firefly.Box.Flow.FlowMode,Firefly.Box.Flow.Direction)"/>'s or <see cref="M:Firefly.Box.Flow.UserFlow.StartBlockElse(System.Func{System.Boolean})"/>'s condition returned false.
+            <seealso cref="M:Firefly.Box.Flow.UserFlow.StartBlock(System.Func{System.Boolean},Firefly.Box.Flow.FlowMode,Firefly.Box.Flow.Direction)"/>
+            <seealso cref="M:Firefly.Box.Flow.UserFlow.EndBlock"/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Flow.UserFlow.Add``1(Firefly.Box.Flow.CachedTask{``0},System.Action)">
+            <summary>
+            Registers a task that is stored by <see cref="T:Firefly.Box.Flow.CachedTask`1"/> to be executed as part of the flow.
+            </summary>
+            <remarks>
+            The task to be executed is stored by <see cref="T:Firefly.Box.Advanced.CachedTaskBase"/> to be executed multiple times.
+            Usually used in conjunction with the <see cref="P:Firefly.Box.UIController.KeepViewVisibleAfterExit"/> property of the sub task.
+            Used mainly for Master details scenarios.
+            </remarks>
+            <param name="cachedTask">The <returnType/> that contains the task to be executed</param>
+            <param name="runTask">The <see cref="T:System.Action"/> that runs the specified task</param>
+        </member>
+        <member name="T:Firefly.Box.RelationType">
+            <summary>
+            Determines the lookup type
+            </summary>
+            <MYEXAMPLE code="RelationsTypes"></MYEXAMPLE>
+        </member>
+        <member name="F:Firefly.Box.RelationType.Find">
+            <summary>
+            The row will be fetched from the database. If the row doesn't exist, the columns will display default values, but any change to those default values will not be saved to the database, because there is no row.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.RelationType.Insert">
+            <summary>
+            A new row will be created. All the columns will display their default values
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.RelationType.InsertIfNotFound">
+            <summary>
+            The row will be fetched from the database. If the row doesn't exist, the columns will display default values and a new row will be created
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.RelationType.Join">
+            <summary>
+            The lookup will fetch rows using a database inner join to the Table of the task. The result affect is that the task rows will be filtered to show only rows for which a row exist in the looked up table.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.RelationType.OuterJoin">
+            <summary>
+            The lookup will fetch rows using a database left outer join to the Table of the task. If a row wasn't found in the looked up table, the columns will display their default values.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.HandlerScope">
+            <summary>
+            Determines the scope a specific <see cref="T:Firefly.Box.Handler"/> is valid
+            </summary>
+            <MYEXAMPLE code="HandlerScopeDemo"></MYEXAMPLE>
+        </member>
+        <member name="F:Firefly.Box.HandlerScope.CurrentTaskOnly">
+            <summary>
+            Only commands invoked by the current task are handled
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.HandlerScope.CurrentContext">
+            <summary>
+            Any command invoked by the current task, or commands that were invoked by tasks that were called by the current task
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.HandlerScope.UnhandledCustomCommandInModule">
+            <summary>
+            Relevant for handlers that reside in a task that inherits from <see cref="T:Firefly.Box.Advanced.ModuleController"/>.
+            Any command that was triggered by a task that's associated to the current task (using the <see cref="P:Firefly.Box.UIController.Module"/>property or the <see cref="P:Firefly.Box.BusinessProcess.Module"/> property)
+            And the action was not handled by any task and any other task that are associated from <see cref="T:Firefly.Box.Advanced.ModuleController"/>.
+            Typically used as a default behavior for a command.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Activities">
+            <summary>
+            Determines the activity for a task
+            </summary>
+            <seealso cref="P:Firefly.Box.BusinessProcess.Activity"/>
+            <seealso cref="P:Firefly.Box.UIController.Activity"/>
+        </member>
+        <member name="F:Firefly.Box.Activities.Update">
+            <summary>
+            The process will show all the rows that fit the filter, and will allow the user to update them
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Activities.Insert">
+            <summary>
+            The process will create new rows
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Activities.Delete">
+            <summary>
+            The process will delete the rows that fit the filter.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Activities.Browse">
+            <summary>
+            The <see cref="T:Firefly.Box.UIController"/> will show all the rows that fit the filter but will not allow the user to update them.
+            In this mode the user can use the Incremental search option.<br/> In a <see cref="T:Firefly.Box.BusinessProcess"/> it'll behave the same way as Update Activity
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.Activities.AsParent">
+            <summary>
+            The task activity will be set according to the activity of its parent (calling) task.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Number">
+            <summary>
+            The basic numeric type. supports integer values as well as decimal values. 
+            </summary>
+            <remarks>It has one important oddness, When divided by 0 – it'll return 0.</remarks>
+        </member>
+        <member name="P:Firefly.Box.Number.Zero">
+            <summary>
+            Represents the <Type/> Zero
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Number.ToDecimal">
+            <summary>
+            Return the value as a <see cref="T:System.Decimal"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Firefly.Box.Date">
+            <summary>
+            This class represents all the functionality concerning dates.
+            </summary>
+            <remarks>
+            The Date value type represents dates with values ranging from January 1, 0001 Anno Domini (Common Era) through December 31, 9999 A.D. (C.E.) 
+            A date could also accept null values, and the <see cref="P:Firefly.Box.Date.Empty"/> value.<br/>
+            Arithmatic operations can be done on dates, to add or subtract days to them.
+            Subtracting one date from another, will return the number of days in between.
+            </remarks>
+        </member>
+        <member name="M:Firefly.Box.Date.ToDateTime">
+            <summary>
+            Converts a <this/> to <see cref="T:System.DateTime"/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Date.Empty">
+            <summary>
+            Represents an empty <this/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Date.FromDateTime(System.DateTime)">
+            <summary>
+            Converts a <see cref="T:System.DateTime"/> to a <this/>.
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Firefly.Box.Date.Now">
+            <summary>
+            Return the current date
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Date.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a Date based on the <paramref name="year"/>, <paramref name="month"/> and <paramref name="day"/>
+            </summary>
+            <param name="year"></param>
+            <param name="month"></param>
+            <param name="day"></param>
+        </member>
+        <member name="M:Firefly.Box.Date.AddYears(System.Int32)">
+            <summary>
+            Add the specified years to the <this/>
+            </summary>
+            <param name="years">the number of years to add</param>
+            <returns>the <this/> result after adding the years</returns>
+            <remarks>
+            Years cannot be added the Date.<see cref="P:Firefly.Box.Date.Empty"/> value.
+            </remarks>
+        </member>
+        <member name="M:Firefly.Box.Date.AddMonths(System.Int32)">
+            <summary>
+            Add the specified months to the <this/>
+            </summary>
+            <param name="months">the number of months to add</param>
+            <returns>the <this/> result after adding the months</returns>
+            <remarks>
+            Months cannot be added the Date.<see cref="P:Firefly.Box.Date.Empty"/> value.
+            </remarks>
+        </member>
+        <member name="M:Firefly.Box.Date.AddDays(System.Int32)">
+            <summary>
+            Add the specified days to the <this/>
+            </summary>
+            <param name="days">the number of days to add</param>
+            <returns>the <this/> result after adding the days</returns>
+        </member>
+        <member name="P:Firefly.Box.Date.BeginningOfMonth">
+            <summary>
+            Returns a <this/> representing the first day of the month of the <this/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Date.BeginningOfYear">
+            <summary>
+            Returns a <this/> representing the first day of the year of the <this/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Date.EndOfMonth">
+            <summary>
+            Returns a <this/> representing the last day of the month of the <this/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Date.EndOfYear">
+            <summary>
+            Returns a <this/> representing the last day of the year of the <this/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Date.Year">
+            <summary>
+            Gets the year component of the date represented by this instance.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Date.Day">
+            <summary>
+            Gets the day of the month represented by this instance.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Date.Month">
+            <summary>
+            Gets the month component of the date represented by this instance.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Text">
+            <summary>
+            This class represents Text and all the available functionality around it.
+            </summary>
+            <remarks>
+            Note that <this/> comparison is done using trim end on both values, such as "abc" and "abc   " are considered equal.</remarks>
+        </member>
+        <member name="M:Firefly.Box.Text.#ctor(Firefly.Box.Text,System.Int32)">
+            <summary>
+            Initializes a new instance of the Text class to the value indicated by a specified text repeated a specified number of times.
+            </summary>
+            <param name="text">a text</param>
+            <param name="count">The number of times text occurs.</param>
+        </member>
+        <member name="M:Firefly.Box.Text.#ctor(System.Char,System.Int32)">
+            <summary>
+            Initializes a new instance of the Text class to the value indicated by a specified char repeated a specified number of times.
+            </summary>
+            <param name="c">a text</param>
+            <param name="count">The number of times text occurs.</param>
+        </member>
+        <member name="P:Firefly.Box.Text.Length">
+            <summary>
+            Gets the Text length.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Text.Replace(Firefly.Box.Text,Firefly.Box.Text)">
+            <summary>
+            Replaces all the occurrences of the <paramref name="textToLookFor"/> with the <paramref name="textToReplace"/>
+            </summary>
+            <param name="textToLookFor">The text to look for and replace</param>
+            <param name="textToReplace">The text to replace to</param>
+            <returns>The Text after replacing all the occurrences of the <paramref name="textToLookFor"/> with the <paramref name="textToReplace"/></returns>
+        </member>
+        <member name="M:Firefly.Box.Text.Contains(Firefly.Box.Text)">
+            <summary>
+            Checks if the Text contains the <paramref name="textToLookFor"/>
+            </summary>
+            <param name="textToLookFor">The text to look for</param>
+            <returns>True if the text is found, otherwise false</returns>
+        </member>
+        <member name="M:Firefly.Box.Text.Trim">
+            <summary>
+            Returns a trimmed version of the text.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Firefly.Box.Text.TrimEnd">
+            <summary>
+            Returns the text without space characters at the end
+            </summary>
+            <returns>The text without space characters at the end</returns>
+        </member>
+        <member name="M:Firefly.Box.Text.TrimStart">
+            <summary>
+            Returns the text without space characters at the start
+            </summary>
+            <returns>The text without space characters at the start</returns>
+        </member>
+        <member name="M:Firefly.Box.Text.Left(System.Int32)">
+            <summary>
+            Returns the <paramref name="numOfChars"/> characters from the start of the text
+            </summary>
+            <param name="numOfChars">The number of chars to extract</param>
+            <returns>The <paramref name="numOfChars"/> left characters</returns>
+        </member>
+        <member name="M:Firefly.Box.Text.ToLower">
+            <summary>
+            Returns a copy of the text in lowercase
+            </summary>
+            <returns>a copy of the text in lowercase</returns>
+        </member>
+        <member name="M:Firefly.Box.Text.Reverse">
+            <summary>
+            Returns a flipped copy of this text
+            </summary>
+            <returns>a flipped copy of this text</returns>
+        </member>
+        <member name="M:Firefly.Box.Text.ToUpper">
+            <summary>
+            Returns a copy of the text in uppercase
+            </summary>
+            <returns>a copy of the text in uppercase</returns>
+        </member>
+        <member name="M:Firefly.Box.Text.ToUpper(System.Globalization.CultureInfo)">
+            <summary>
+            Returns a copy of the text in uppercase
+            </summary>
+            <returns>a copy of the text in uppercase</returns>
+        </member>
+        <member name="M:Firefly.Box.Text.IndexOf(Firefly.Box.Text)">
+            <summary>
+            Returns the index of the first occurrence of the <paramref name="textToLookFor"/>
+            </summary>
+            <remarks>
+            If no value is found -1 is returned</remarks>
+            <param name="textToLookFor">The text to look for</param>
+            <returns>the index of the first occurrence of the <paramref name="textToLookFor"/></returns>
+        </member>
+        <member name="M:Firefly.Box.Text.Right(System.Int32)">
+            <summary>
+            Returns the <paramref name="numOfChars"/> characters from the end of the text.
+            </summary>
+            <param name="numOfChars">The number of chars to extract</param>
+            <returns>The <paramref name="numOfChars"/> characters from the end of the text</returns>
+        </member>
+        <member name="P:Firefly.Box.Text.Item(System.Int32)">
+            <summary>
+            Gets the character at a specified character position in this instance.
+            </summary>
+            <param name="index">A character position in this instance. </param>
+            <returns>A Unicode character.</returns>
+        </member>
+        <member name="M:Firefly.Box.Text.Substring(System.Int32)">
+            <summary>
+            Retrieves a substring from this instance.
+            </summary>
+            <param name="fromPosition">from position</param>
+            <returns>a substring from this instance.</returns>
+        </member>
+        <member name="M:Firefly.Box.Text.Substring(System.Int32,System.Int32)">
+            <summary>
+            Retrieves a substring from this instance.
+            </summary>
+            <param name="fromPosition">from position</param>
+            /// <param name="length">length</param>
+            <returns>a substring from this instance.</returns>
+        </member>
+        <member name="M:Firefly.Box.Text.Insert(Firefly.Box.Text,System.Int32,System.Int32)">
+            <summary>
+            Inserts a specified instance of Text at a specified index position in this instance
+            </summary>
+            <param name="textToInsert">text to insert</param>
+            <param name="position">position</param>
+            <param name="length">length</param>
+            <returns></returns>
+        </member>
+        <member name="M:Firefly.Box.Text.Remove(System.Int32,System.Int32)">
+            <summary>
+            Removes characters from the string.
+            </summary>
+            <param name="fromPosition"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Firefly.Box.Text.Empty">
+            <summary>
+             Represents an empty Text
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Bool">
+            <summary>
+            Represents a basic true/false value. Also Supports Null.
+            </summary>
+            <MYEXAMPLE code="DemoBool">Bool behaviour</MYEXAMPLE>
+        </member>
+        <member name="M:Firefly.Box.Bool.ToBoolean">
+            <summary>
+            Converts to <see cref="T:System.Boolean"/> 
+            </summary>
+            <returns>
+            Returns a <see cref="T:System.Boolean"/> representing the current value.
+            </returns>
+        </member>
+        <member name="F:Firefly.Box.Bool.Yes">
+            <summary>
+            Returns <see cref="F:Firefly.Box.Bool.True"/>.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Bool.ToInt">
+            <summary>Transforms the <see cref="T:Firefly.Box.Bool"/> to <returnType/> </summary>
+            <returns>returns 1 if the value is true. otherwise returns 0</returns>
+        </member>
+        <member name="T:Firefly.Box.Time">
+            <summary>
+            This class represents all the functionality concerning time.
+            </summary>
+            <remarks>
+            The time is stored as the total seconds from 00:00:00
+            </remarks>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Firefly.Box.Time.AddToDateTime(System.DateTime)" -->
+        <member name="M:Firefly.Box.Time.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a Time based on the <paramref name="hours"/>, <paramref name="minutes"/> and <paramref name="seconds"/>
+            </summary>
+            <param name="hours"></param>
+            <param name="minutes"></param>
+            <param name="seconds"></param>
+            <returns>returns the new created date</returns>
+        </member>
+        <member name="M:Firefly.Box.Time.AddHours(System.Double)">
+            <summary>
+            Add the specified hours to the <this/>
+            </summary>
+            <param name="hours">the number of hours to add</param>
+            <returns>the <this/> result after adding the hours</returns>
+        </member>
+        <member name="M:Firefly.Box.Time.AddMinutes(System.Double)">
+            <summary>
+            Add the specified minutes to the <this/>
+            </summary>
+            <param name="minutes">the number of minutes to add</param>
+            <returns>the <this/> result after adding the minutes</returns>
+        </member>
+        <member name="M:Firefly.Box.Time.AddSeconds(Firefly.Box.Number)">
+            <summary>
+            Add the specified seconds to the <this/>
+            </summary>
+            <param name="seconds">the number of seconds to add</param>
+            <returns>the <this/> result after adding the seconds</returns>
+        </member>
+        <member name="M:Firefly.Box.Time.FromDateTime(System.DateTime)">
+            <summary>
+            Extracts the <this/> from a <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="date">The <returntype/> from which to extract the <this/></param>
+            <returns>The <this/> extracted from the <see cref="T:System.DateTime"/></returns>
+        </member>
+        <member name="P:Firefly.Box.Time.Now">
+            <summary>
+            Return the current time
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Time.TotalSeconds">
+            <summary>
+            Get's the total seconds from 00:00:00 and this <this/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Time.StartOfDay">
+            <summary>
+            Represents the hour 00:00:00
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.Advanced.ControlBase.AllowDrag">
+            <summary>
+            Gets or sets a value indicating whether data from this control can be dragged.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.Advanced.ControlBase.Available">
+            <summary>
+            Gets a value indicating whether the Control should be visible.
+            </summary>
+            <remarks>This property will return a value according to the Visible and BindVisible events ignoring bound controls.
+            Should be used in a scenario where you have a control on a non visible tab and you want to know if it would be visible if the tab was visible
+            </remarks>
+        </member>
+        <member name="P:Firefly.Box.UI.Advanced.ControlBase.FixedBackColorInNonFlatStyles">
+            <summary>
+            When set to true, when ever the <see cref="F:Firefly.Box.UI.ControlStyle.Raised"/> or <see cref="F:Firefly.Box.UI.ControlStyle.Sunken"/> <see cref="T:Firefly.Box.UI.ControlStyle"/> are used, the <see cref="P:Firefly.Box.UI.Advanced.ControlBase.BackColor"/> will be fixed to <see cref="P:System.Drawing.SystemColors.Control"/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.Advanced.ControlBase.BoundTo">
+            <summary>
+            Determines to which control this control is bound to.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.Advanced.ControlExtender.BoundTo">
+            <summary>
+            Determines to which control this control is bound to.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.Advanced.InputControlBase">
+            <summary>
+            Represents the base class for all the control that can be bidirectionally bound to columns.
+            </summary>
+        </member>
+        <member name="E:Firefly.Box.UI.Advanced.InputControlBase.Change">
+            <summary>
+            Occurs when the value in the control changes.
+            </summary>
+        </member>
+        <member name="E:Firefly.Box.UI.Advanced.InputControlBase.Expand">
+            <summary>
+            Occurs when the user parks on this control and invokes the <see cref="F:Firefly.Box.Command.Expand"/> <see cref="T:Firefly.Box.Command"/>
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.Advanced.ListControlBase">
+            <summary>
+            Represents the base class of all multiple choice controls
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.Advanced.TextControlBase">
+            <summary>
+            The base class for all text controls
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.Advanced.TextControlBase.UseMnemonic">
+            <summary>
+             Gets or sets a value indicating whether the control interprets an ampersand character in the control's Text property to be an access key prefix character. 
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.UI.Advanced.TextControlBase.MeasureString(System.String)">
+            <param name="text">the string to measure</param>
+            <returns>The <returnType/> needed to contain the <paramref name="text"/> specified</returns>
+        </member>
+        <member name="M:Firefly.Box.UI.Advanced.TextControlBase.MeasureString(System.Int32)">
+            <param name="length">The length of the string to fit</param>
+            <returns>The <returnType/> needed to contain a string that matches the <paramref name="length"/> specified</returns>
+        </member>
+        <member name="T:Firefly.Box.UI.Advanced.ContainsDataAttribute">
+            <summary>
+            Used by the form designer, data selector to identify classes that contains items that can be used as data.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.Advanced.ImageData">
+            <summary>
+            Represents an image source. Used to bind properties and references to a <see cref="T:Firefly.Box.UI.PictureBox"/>'s <see cref="P:Firefly.Box.UI.PictureBox.Data"/> property
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.ButtonStyle">
+            <summary>
+            Determines the style in which the button is displayed
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ButtonStyle.Normal">
+            <summary>
+            A normal windows button
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ButtonStyle.Image">
+            <summary>
+            An image based button
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ButtonStyle.ImageAndText">
+            <summary>
+            An image button with text written above the image. The image source will be extracted from the Data, and the text will be from the Format or Text
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ButtonStyle.TextWithImage">
+            <summary>
+            An image button with text written above the image. The image source will be extracted from the ImageLocation, and the text will be from the Data
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ButtonStyle.HyperLink">
+            <summary>
+            The button will apear as a HyperLink
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.Button">
+            <summary>
+            Represents a Windows button control. 
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.Button.RaiseChangeOnClick">
+            <summary>
+            When set to true, the <see cref="E:Firefly.Box.UI.Advanced.InputControlBase.Change"/> event will be raised whenever this <This/> button is clicked.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.Button.ClickEventRegistrationErasesPreviouslyRegisteredClickHandlers">
+            <summary>
+            When set to true, Whenever a new handler is registered to the <see cref="E:Firefly.Box.UI.Button.Click"/> event, all previous handlers are removed.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.Button.ImageLocation">
+            <summary>
+             The path to the filename containing this <This/>'s image
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.Button.ParkOnClick">
+            <summary>
+            Gets or sets the value that determines if when clicked, focus should be recieved first.
+            </summary>
+            <remarks>
+            When set to true, and the button is clicked, first focus will be reached and then the click will be processed.
+            If set to false, the click will be performed without recieving focus.
+            </remarks>
+        </member>
+        <member name="T:Firefly.Box.UI.CheckBox">
+            <summary>
+            Represents a windows CheckBox
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.CheckBox.ImageLocation">
+            <summary>
+             The path to the filename containing this <This/>'s image
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.CheckBox.ThreeState">
+            <summary>
+            Gets or sets the value that determines if this is a three state checkbox.
+            </summary>
+            <remarks>
+            Three state checkbox allows for true,false and null values.
+            </remarks>
+        </member>
+        <member name="T:Firefly.Box.UI.ColorScheme">
+            <summary>
+            Represents a color scheme that contains a <see cref="P:Firefly.Box.UI.ColorScheme.ForeColor"/> and a <see cref="P:Firefly.Box.UI.ColorScheme.BackColor"/>.
+            </summary>
+            <remarks>
+            When applied to a control using the <see cref="T:Firefly.Box.UI.Advanced.ControlBase"/>.<see cref="T:Firefly.Box.UI.ColorScheme"/> property, the control's ForeColor and BackColor changes according to the values of this <This/>
+            </remarks>
+        </member>
+        <member name="T:Firefly.Box.UI.ComboBox">
+            <summary>
+            Represents a windows ComboBox
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.ComboBox.Lines">
+            <summary>
+            The number of lines that will appear when the <This/> is opened
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.FindControlOnForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.UI.FindControlOnForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Firefly.Box.UI.FindControlOnForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.GridColumn">
+            <summary>
+            Represents a column in a <see cref="T:Firefly.Box.UI.Grid"/>
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.ListBox">
+            <summary>
+            Represents a standard Windows ListBox. 
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.RadioButton">
+            <summary>
+            Represents a control that contains RadioButtons organized as a list
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.RadioButton.ImageLocation">
+            <summary>
+             The path to the filename containing this <This/>'s image
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.RtfEditor.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.UI.RtfEditor.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Firefly.Box.UI.RtfEditor.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.SelectControlType.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.UI.SelectControlType.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Firefly.Box.UI.SelectControlType.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.ImageLayout">
+            <summary>
+            Specifies the position of the image on the control.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ImageLayout.None">
+            <summary>
+            The image is left-aligned at the top across the control's client rectangle.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ImageLayout.Tile">
+            <summary>
+            The image is tiled across the control's client rectangle.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ImageLayout.Stretch">
+            <summary>
+            The image is stretched across the control's client rectangle.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ImageLayout.ScaleToFit">
+            <summary>
+            The image is scaled to fit the control's client rectangle.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ImageLayout.ScaleToFill">
+            <summary>
+            The image is scaled to fill the control's client rectangle.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.GroupBox">
+            <summary>
+            Represents a Windows control that displays a frame around a group of controls with an optional caption
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.TabControl">
+            <summary>
+            Represents a standard windows tab control.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.FontScheme">
+             <summary>
+             Represents a font scheme that contains a <see cref="P:Firefly.Box.UI.FontScheme.Font"/> and a <see cref="P:Firefly.Box.UI.FontScheme.TextAngle"/>
+             </summary>
+            <remarks>
+             When applied to a control using the <see cref="T:Firefly.Box.UI.Advanced.ControlBase"/>.<see cref="T:Firefly.Box.UI.FontScheme"/> property, the control's Font and TextAngle changes according to the values of this <This/>
+             </remarks>
+        </member>
+        <member name="T:Firefly.Box.UI.WindowStartPosition">
+            <summary>
+            Represents the deferent supported window start positions
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.WindowStartPosition.Custom">
+            <summary>
+            The position will be determined according to it's Left and Top properties
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.WindowStartPosition.Default">
+            <summary>
+            The position will be determined according to windows default position settings
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.WindowStartPosition.CenterParent">
+            <summary>
+            The windows will be positioned at the center of it's parent window
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.WindowStartPosition.CenterMDI">
+            <summary>
+            The window will be positioned at the center of the containing MDI
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.WindowStartPosition.CenterScreen">
+            <summary>
+            The windows will be position at the center of the screen on which it is displayed
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.WindowStartPosition.CenterParentNonChildWindow">
+            <summary>
+            The windows will be positioned at the center of it's first parent window which is not a child window
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.Form">
+            <summary>
+            Represents a window that makes up an application's user interface. 
+            </summary>
+            <MYEXAMPLE code="UITools" pubs="N" uiTools="N">Tools for dynamically generation UI controls</MYEXAMPLE>
+        </member>
+        <member name="P:Firefly.Box.UI.Form.BackgroundImageLocation">
+            <summary>
+             The path to the filename containing this <This/>'s background image
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.UI.Form.SetParentControl(System.Windows.Forms.Control)">
+            <summary>
+            Use when you want the form to be a child a control, instead of the <see cref="P:Firefly.Box.UI.Form.ChildWindow"/> default behavior where it is the child of the calling form.
+            </summary>
+            <param name="parent"></param>
+        </member>
+        <member name="T:Firefly.Box.UI.Grid">
+            <summary>
+            Represents a grid display of rows.
+            </summary>
+            <remarks>
+            This grid can be displayed on a user interface or as part of a report, using the <see cref="T:Firefly.Box.Printing.ReportSection"/>
+            This grid allows for columns to be dragged on it, and control to be dragged into those columns.
+            </remarks>
+        </member>
+        <member name="F:Firefly.Box.UI.GridStartOnRowPosition.TopRow">
+            <summary>
+            Will always part on the top row of the grid - if there are no more rows, the rest of the grid will be empty
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.GridStartOnRowPosition.MiddleRow">
+            <summary>
+            Will try to park on the middle row - if there are no rows after it, it'll park on the last row.
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.GridStartOnRowPosition.MiddleRowNeverBelow">
+            <summary>
+            Will always part on the middle row - if there are no more rows, the rest of the grid will apear empty
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.Label">
+            <summary>
+            Represents a standard Windows label. 
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.TextBox">
+            <summary>
+            Represents a standard windows TextBox
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.TextBox.DisplayEmptyValuesAsValues">
+            <summary>
+            When Set to false, when you focus on a DateColumn with Empty Date, it'll display as blanks, when set to true it'll display as 00/00/0000
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.TextBox.AutoCompleteCustomSource">
+            <summary>
+            supported only for simple formats
+            </summary>
+            
+        </member>
+        <member name="P:Firefly.Box.UI.TextBox.AutoCompleteMode">
+            <summary>
+            supported only for simple formats
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.TextBox.AutoCompleteSource">
+            <summary>
+            supported only for simple formats
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.ControlStyle">
+            <summary>
+            Used to determine the control's visual style
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ControlStyle.Standard">
+            <summary>
+            The control will appear as a normal windows control using the OS visual styles when they are available
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ControlStyle.Flat">
+            <summary>
+            The control will appear flat
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ControlStyle.Sunken">
+            <summary>
+            The control will appear with a sunken 3d affect
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ControlStyle.Raised">
+            <summary>
+            The control will appear with a raised 3d affect
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.ControlBorderStyle">
+            <summary>
+            Used to determine a control's border style
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ControlBorderStyle.None">
+            <summary>
+            No border
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ControlBorderStyle.Thin">
+            <summary>
+            Thin border
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ControlBorderStyle.Thick">
+            <summary>
+            Thick border
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.ControlBinding">
+            <summary>
+            Creates a binding to the specified <see cref="P:Firefly.Box.UI.ControlBinding.Control"/>. 
+            </summary>
+            <remarks>
+            When ever the specified <see cref="P:Firefly.Box.UI.ControlBinding.Control"/>'s <see cref="P:Firefly.Box.UI.Advanced.ControlBase.Visible"/> property changes, the bound control <see cref="P:Firefly.Box.UI.Advanced.ControlBase.Visible"/> changes as well.
+            If the specified <see cref="P:Firefly.Box.UI.ControlBinding.Control"/> is a <see cref="T:Firefly.Box.UI.Advanced.ListControlBase"/> The bound control will only be visible if the <see cref="P:Firefly.Box.UI.ControlBinding.Context"/> matches the control's SelectedIndex property
+            </remarks>
+        </member>
+        <member name="P:Firefly.Box.UI.ControlBinding.Control">
+            <summary>
+            The control this <This/> references
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.ControlBinding.Context">
+            <summary>
+            The context in the <see cref="P:Firefly.Box.UI.ControlBinding.Control"/> that this <This/> referenced to. When set to -1, The binding is to the <see cref="P:Firefly.Box.UI.ControlBinding.Control"/>'s Visible property. otherwise the binding is to the SelectedIndex property
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.DataBindingSelect.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.UI.DataBindingSelect.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Firefly.Box.UI.DataBindingSelect.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.GridActiveRowStyle">
+            <summary>
+            Determines the way an active row appears in a <see cref="T:Firefly.Box.UI.Grid"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.GridActiveRowStyle.None">
+            <summary>
+            Nothing will appear when the row is active
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.GridActiveRowStyle.Border">
+            <summary>
+            The active row will be surrounded by a black frame
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.GridMultiSelectRowStyle">
+            <summary>
+            Determines the way a selected row will appear during multi selection of rows in a <see cref="T:Firefly.Box.UI.Grid"/>
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ImageButtonImageStructure.Basic">
+            <summary>
+            The image has four sections: Focused, Clicked, Disabled, Normal
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ImageButtonImageStructure.Hover">
+            <summary>
+            The image has five sections: Focused, Clicked, Disabled, Normal, Hover
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ImageButtonImageStructure.FormsDefaultButton">
+            <summary>
+            The image has five sections: Focused, Clicked, Disabled, Normal, Hover, Forms default button
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.Line">
+            <summary>
+            Represents a line in the user interface or printing.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.PictureBox">
+            <summary>
+            Represents a Windows picture box control for displaying an image.
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UI.PictureBox.ImageLocation">
+            <summary>
+            The path to the filename that contains the image to display in this <This/>
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.AdvancedAnchor">
+            <summary>
+            A more advanced type of anchoring that the one used in <see cref="P:System.Windows.Forms.Control.Anchor"/>.
+            </summary>
+            <remarks>
+            The anchoring can be set in relative percentage of the anchoring and not the absolute used in <see cref="P:System.Windows.Forms.Control.Anchor"/>.
+            </remarks>
+            <example>
+            Lets say we have a form width of 100, and a control width of 50.
+            When regular <see cref="P:System.Windows.Forms.Control.Anchor"/> is set to right, the width of the control will increase matching the width of the form.
+            when the user resizes the form to width 300, the control's width will be 250.
+            
+            When using advanced anchoring I can set the <see cref="P:Firefly.Box.UI.AdvancedAnchor.RightPercentage"/> to 25.
+            So when the user resizes the form to width 200, the control's width will be 100 (50 + 200*25%)
+            
+            The <This/> matches it's right to left behavior to the <see cref="T:Firefly.Box.UI.Form"/>'s <see cref="P:Firefly.Box.UI.Form.RightToLeft"/> property
+            </example>
+            <myexample code="AdvancedAnchorDemo">Usage of Advanced Anchor</myexample>
+        </member>
+        <member name="T:Firefly.Box.UI.RichTextBox">
+            <summary>
+            Represents a Windows rich text box control. 
+            </summary>
+        </member>
+        <member name="F:Firefly.Box.UI.ScreenWizard.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.UI.ScreenWizard.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Firefly.Box.UI.ScreenWizard.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.ScrollBar">
+            <summary>
+            Represents a standard windows ScrollBar.
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.UI.Shape">
+            <summary>
+            Represents a shape 
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.BusinessProcess.Run">
+            <summary>
+            Runs the <this/>
+            </summary>
+            <remarks>
+            When the business process is run, the following actions occur:
+            <list type="bullet">
+            <item>The <M_Load/> is executed</item>
+            <item>The values of the filter defined in the <m_Where/> are fixed</item>
+            <item>The <M_Start/> is executed</item>
+            <item>The data will be loaded from the database</item>
+            <item>Row Level Loop(*):
+                <list type="bullet">
+            <item>The Row will be loaded from the database</item>
+            <item>The Relations and Columns will evaluate according to the loaded row values</item>
+            <item>The <M_EnterRow/> will be executed</item>
+            <item>The <M_LeaveRow/> will be executed</item>
+            <item>The <m_SavingRow/> will be executed if there was any change in the row, as indicated by the <m_RowChanged/>, or for new and deleted rows. For more information see <m_SavingRow/></item>
+            <item>The Row will be saved to the database</item>
+            </list> 
+            </item>
+            <item>The <M_End/> is executed</item>
+            </list>
+            <br/>
+            This sequence can be broken, using the <M_Exit/>.<br/>
+            <br/>
+            <b>(*)Row Level Loop</b> - The <this/> will perform the Row Level Loop for each row of the entity that was set to the <m_From/>, 
+            that matches the filter set in the <m_Where/>.<br/>
+            When no entity was set to the <m_From/>, or when the <m_Activity/> is set to <see cref="F:Firefly.Box.Activities.Insert"/>, 
+            the row iteration will be performed infinitely until the <M_Exit/> will force it to end.
+            </remarks>
+            <myexample code="BusinessProcessEventFlow" pubs="Y">The event flow of a <this/></myexample>
+        </member>
+        <member name="M:Firefly.Box.BusinessProcess.ForEachRow(System.Action)">
+            <summary>
+            Performs the specified action on each row that matches the <m_Where/> filter.
+            </summary>
+            <remarks>
+            Created for ease of use scenarios.<br/>
+            Most simple business operations needs to perform an action for each row that matches the filter.<br/>
+            Behaves the same way as registering that action to the <m_LeaveRow/>, and invoking the <m_Run/>.
+            </remarks>
+            <myExample code="ForEachRow" pubs="Y">This example demonstrates both ForEachRow and ForFirstRow</myExample>
+            <param name="action">The <see cref="T:System.Action"/> to be performed for each row</param>
+            <see cref="E:Firefly.Box.BusinessProcess.LeaveRow"/>
+            <see cref="M:Firefly.Box.BusinessProcess.Run"/>
+        </member>
+        <member name="M:Firefly.Box.BusinessProcess.ForEachRow(Firefly.Box.Data.Advanced.FilterBase,System.Action)">
+            <summary>
+            Performs the specified action on each row that matches the <m_Where/> filter.
+            </summary>
+            <remarks>
+            Created for ease of use scenarios.<br/>
+            Most simple business operations needs to perform an action for each row that matches the filter.<br/>
+            Behaves the same way as registering that action to the <m_LeaveRow/>, and invoking the <m_Run/>.
+            </remarks>
+            <myExample code="ForEachRow" pubs="Y">This example demonstrates both ForEachRow and ForFirstRow</myExample>
+            <param name="action">The <see cref="T:System.Action"/> to be performed for each row</param>
+            <see cref="E:Firefly.Box.BusinessProcess.LeaveRow"/>
+            <see cref="M:Firefly.Box.BusinessProcess.Run"/>
+        </member>
+        <member name="P:Firefly.Box.BusinessProcess.RowChanged">
+            <summary>
+            Indicates if the current row has changed. 
+            </summary>
+            <remarks>
+            This property indicates whether the current row has changed. In case it has, it will be save 
+            to the database on the <m_SavingRow/>.
+            <list type="bullet">
+            Operations List:
+            <item>Will Return "True" when the row has changed </item>
+            <item>Causes <m_SavingRow/> when leaving the row </item>
+            <item><m_RowChanged/> becomes insignificant if <see cref="P:Firefly.Box.Data.Advanced.ColumnBase.OnChangeMarkRowAsChanged"/> 
+            is set to "False"</item>
+            </list>
+            </remarks>
+            <myexample code="RowChangedProperty"> The following example show the iterations between <m_RowChanged/>
+            and <see cref="P:Firefly.Box.Data.Advanced.ColumnBase.OnChangeMarkRowAsChanged"/> </myexample>
+        </member>
+        <member name="P:Firefly.Box.BusinessProcess.Counter">
+            <summary>
+            Returns the number of cycles started so far. 
+            </summary>
+            <remarks>
+            Will return 1 even if the <see cref="M:Firefly.Box.BusinessProcess.Exit(Firefly.Box.ExitTiming,System.Func{System.Boolean})"/> evaluated to true for the first row.<br/>
+            That's because the row was loaded, the counter advanced and then the <see cref="M:Firefly.Box.BusinessProcess.Exit(Firefly.Box.ExitTiming,System.Func{System.Boolean})"/> evaluated and ended the task.
+            </remarks>
+        </member>
+        <member name="P:Firefly.Box.BusinessProcess.View">
+            <summary>
+            Determines the form to be displayed while this <see cref="T:Firefly.Box.BusinessProcess"/> is running
+            </summary>
+            <remarks>
+            The Form's content will be refreshed when ever a row was left and the interval set in the <M_UserInterfaceRefreshInterval/>, is reached.
+            </remarks>
+            <MYEXAMPLE code="BusinessProcessForm" pubs="N">Usage of form of a <this/></MYEXAMPLE>
+        </member>
+        <member name="P:Firefly.Box.BusinessProcess.Activity">
+            <summary>
+            Determines the main activity to be performed in this <see cref="T:Firefly.Box.BusinessProcess"/>
+            </summary>
+            <remarks>
+            Allowed values
+            <list type="table">
+            <listheader>
+            <term>Activity</term>
+            <description>operation</description>
+            </listheader>
+            <item>
+            <term><see cref="F:Firefly.Box.Activities.Update"/> </term>
+            <description>The default. Iterate the existing rows</description>
+            </item>
+            <item>
+            <term><see cref="F:Firefly.Box.Activities.Delete"/> </term>
+            <description>Deletes each row that matches the <see cref="P:Firefly.Box.BusinessProcess.Where"/></description>
+            </item>
+             <item>
+            <term><see cref="F:Firefly.Box.Activities.Insert"/> </term>
+            <description>Creates new row for each cycle, disregarding the <see cref="P:Firefly.Box.BusinessProcess.Where"/></description>
+            </item>
+             <item>
+            <term><see cref="F:Firefly.Box.Activities.Browse"/> </term>
+            <description>Has no meaning in a <this/> - will operate the same as Update</description>
+            </item>
+            </list>
+            </remarks>
+            <myExample code="DemoBusinessProcess" pubs="Y">This examples demonstrates the usage of <m_Activity/> in a <this/></myExample>
+        </member>
+        <member name="P:Firefly.Box.BusinessProcess.NonDbWhere">
+            <summary>
+            This Where will always be evaluated in memory and may have performance implications
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.BusinessProcess.AllowUserAbort">
+            <summary>
+            Gets or sets the value determining if the <this/> will listen to certain inputs from the user that will cause it to terminate.<br/>
+            </summary>
+            <remarks>
+            Gets or sets the value determining if the <this/> will listen to certain inputs from the user that will cause it to terminate.
+            Those inputs are:
+            <list type="bullet">
+            <item>The user presses the Escape key on the keyboard</item>
+            <item>The <see cref="F:Firefly.Box.Command.Exit"/> command is raised</item>
+            <item>The <see cref="F:Firefly.Box.Command.ExitApplication"/> command is raised</item>
+            <item>The user clicks on another form that is open</item>
+            </list>
+            </remarks>
+            <myExample code="DemoAllowUserAbort" pubs="N">Usage of AllowUserAbort</myExample>
+        </member>
+        <member name="E:Firefly.Box.BusinessProcess.SavingRow">
+            <summary>
+            Occurs when the <this/> is about to save the row
+            </summary>
+            <remarks>
+            When running business process the SavingRow event will occur after the <M_LeaveRow/> under the following circumstances:
+            <list type="bullet">
+            <item>An existing row was changed, as indicated by the <m_RowChanged/> </item>
+            <item>An existing row is about to be deleted</item>
+            <item>A new row is about to be inserted</item>
+            <item>This event occurs twice after deleting row when <M_DeleteRowAfterLeavingItIf/> is used, 
+            for more information see <M_DeleteRowAfterLeavingItIf/></item>
+            <item>The actual saving to the database can be prevented by setting the Cancel property of it's event args to true</item>
+            </list>
+            </remarks>
+            <myexample code="BusinessProcessSavingRow">The different subtleties of <M_SavingRow/></myexample>
+        </member>
+        <member name="M:Firefly.Box.BusinessProcess.ReadAllRows(System.Action)">
+            <summary>
+            Used for quick, read-only pass over all the rows of the <this/>.
+            </summary>
+            <remarks>
+            This method purpose is to create a quick and "cheap" read of all the rows of the <this/>.<br/>
+            This Method can be performed only from <m_Start/>, <m_End/>, <m_EnterRow/>, <m_LeaveRow/> and <m_SavingRow/>.
+            </remarks>
+            
+            <myExample code="ReadAllRows">using the read all rows to display each row's precentage of the total value</myExample>
+        </member>
+        <member name="T:Firefly.Box.Handler">
+            <summary>
+            This class is used to determine the way an invoked <see cref="T:Firefly.Box.Command"/> will be handled
+            </summary>
+            <MYEXAMPLE code="HandlerScopeDemo"></MYEXAMPLE>
+        </member>
+        <member name="F:Firefly.Box.Handler._scope">
+            <summary>
+            Determines if this handler is enabled
+            </summary>
+            <MYEXAMPLE code="HandlerScopeDemo"></MYEXAMPLE>
+        </member>
+        <member name="P:Firefly.Box.Handler.Scope">
+            <summary>
+            The scope of this handler <seealso cref="T:Firefly.Box.HandlerScope"/>
+            </summary>
+            <MYEXAMPLE code="HandlerScopeDemo"></MYEXAMPLE>
+        </member>
+        <member name="E:Firefly.Box.Handler.Invokes">
+            <summary>
+            The <see cref="T:System.Action"/> that will be Executed when the <see cref="!:CommandBase"/> is invoked and all conditions are met
+            </summary>
+            <MYEXAMPLE code="HandlerScopeDemo"></MYEXAMPLE>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Firefly.Box.Handler.Parameters" -->
+        <member name="M:Firefly.Box.Handler.RegisterCalledTask``1(Firefly.Box.Flow.CachedTask{``0})">
+            <summary>
+            Associates a task with the <this/>
+            </summary>
+            <typeparam name="taskType">The type of the associated task</typeparam>
+            <param name="cachedTaskBase">the associated task</param>
+            <remarks>Used mainly in master detail scenarios. See <see cref="T:Firefly.Box.Flow.CachedTask`1"/></remarks>
+        </member>
+        <member name="M:Firefly.Box.Handler.RegisterCalledTask``1(Firefly.Box.Flow.CachedTask{``0},System.Func{System.Boolean})">
+            <summary>
+            Associates a task with the <this/>
+            </summary>
+            <typeparam name="taskType">The type of the associated task</typeparam>
+            <param name="cachedTaskBase">the associated task</param>
+            <remarks>Used mainly in master detail scenarios. See <see cref="T:Firefly.Box.Flow.CachedTask`1"/></remarks>
+        </member>
+        <member name="T:Firefly.Box.Relation">
+            <summary>
+            Represents a many to one relation some times called a one to one relation.
+            </summary>
+            <remarks>
+            If more than one row matches the criteria the first matching row will be used
+            </remarks>
+            <MYEXAMPLE code="FetchingRowsWithRelations"></MYEXAMPLE>
+            <MYEXAMPLE code="RelationsTypes"></MYEXAMPLE>
+        </member>
+        <member name="P:Firefly.Box.Relation.Type">
+            <summary>
+            Gets this <this/>'s type
+            </summary>
+            <MYEXAMPE code="RelationsTypes"></MYEXAMPE>
+        </member>
+        <member name="P:Firefly.Box.Relation.OrderBy">
+            <summary>
+            Gets or sets the value determining order in which the rows are ordered
+            </summary>
+            
+        </member>
+        <member name="P:Firefly.Box.Relation.Where">
+            <summary>
+            The <ReturnType/> according to which rows will be loaded in this <Type/>
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.Relation.Enabled">
+            <summary>
+            Determines if this <Type/> is enabled. 
+            </summary>
+            <remarks>
+            If it is not enabled, rows will not be loaded, and will not be saved to the database.
+            </remarks>
+        </member>
+        <member name="P:Firefly.Box.Relation.RowFound">
+            <summary>
+            Returns true if this relation points to an existing row
+            </summary>
+        </member>
+        <member name="E:Firefly.Box.Relation.Load">
+            <summary>
+            Occurs whenever a row is loaded to this <Type/>
+            </summary>
+        </member>
+        <member name="M:Firefly.Box.Relation.NotifyRowWasFoundTo(Firefly.Box.Data.BoolColumn)">
+            <summary>
+            Determines a column that will be set whenever the <Type/> is loaded or reloaded.
+            </summary>
+            <remarks>
+            The column will be set with true if a row was found, otherwise it'll be set with false.
+            </remarks>
+            <param name="loadListener">The column that will be set whenever the <Type/> is loaded or reloaded</param>
+        </member>
+        <member name="M:Firefly.Box.Relation.NotifyRowWasFoundTo(Firefly.Box.Data.NumberColumn)">
+            <summary>
+            Determines a column that will be set whenever the <Type/> is loaded or reloaded.
+            </summary>
+            <remarks>The column will be set with 0 if a row was found, otherwise it'll be set with 1.</remarks>
+            <param name="loadListener">The column that will be set whenever the <Type/> is loaded or reloaded</param>
+        </member>
+        <member name="M:Firefly.Box.Relation.Associate(Firefly.Box.Data.Advanced.ColumnBase[])">
+            <summary>
+            Allows for columns that are not associated with the <Type/>'s <see cref="P:Firefly.Box.Relation.From"/> to be included in the <Type/> reevaluation.
+            </summary>
+            <remarks>
+            Columns that are associated with a relation can be used in it's filter, as the are evaluated with it.
+            </remarks>
+            <param name="columns">The columns to be associated</param>
+        </member>
+        <member name="T:Firefly.Box.UIController">
+            <summary>
+            Represents a <This/> in a classic Model View Controller pattern.
+            </summary>
+            <remarks>
+            The <this/> controls the interaction between the user ("View") and the application.
+            <br/>
+            For information about the event flow, and the execution behavior of a <this/> see the documentation of the <m_Run/>.<br/>
+            Controls from the Firefly.Box.UI namespace, that are placed on the <Form/>, can only receive focus if they are associated to a column, 
+            that is part of the <m_Columns/> collection of the <this/>.
+            </remarks>
+            <MyExample code="SimpleUIController" pubs="Y" UITools="Y">Simple <This/></MyExample>
+        </member>
+        <member name="M:Firefly.Box.UIController.AdvancedSettings.UseUserFlow">
+            <summary>
+            Changes the <see cref="T:Firefly.Box.UIController"/> to be controlled by the user flow
+            </summary>
+            <returns>An <returntype/> that can be used to add action's that will be performed as part of the flow</returns>
+            <remarks>
+            When this method is called, the tab order of the controls on the form, is determined by the order in which the columns were added to
+             the <see cref="P:Firefly.Box.UIController.Columns"/> collection and is no longer controlled by the <see cref="!:IControl.TabIndex"/> of the controls.<br/>
+            Actions to perform between the columns, can be added using the <see cref="T:Firefly.Box.Flow.UserFlow"/> object returned by this method.
+            </remarks>
+            <MyExample code="FlowUIControllerDemo">Basic usage of Flow UIController</MyExample>
+            <MYEXAMPLE code="DemoFlowMode"></MYEXAMPLE>
+        </member>
+        <member name="M:Firefly.Box.UIController.Run">
+            <summary>
+            Runs the <This/>. 
+            </summary>
+            <remarks>
+            The run method is synchronous and will hold this thread until the user exists the <this/>. Similar, thought not same as <see cref="M:System.Windows.Forms.Form.ShowDialog"/>
+            When the task is executed the following events take place:
+            <list type="bullet">
+            <item>The <m_Load/> is executed</item>
+            <item>The <m_Start/> is executed</item>
+            <item>The rows are loaded from the database</item>
+            <item>For each row the user navigates to, the <m_EnterRow/> is executed</item>
+            <item>When the user leaves a row, the following events are executed
+            <list type = "bullet">
+            <item>In any case the <m_LeaveRow/> is executed</item>
+            <item>If the row was changed, the <m_SavingRow/> is executed and the changes are saved to the database. For an in depth explanation of leave row and it's subtleties, see <m_SavingRow/></item>
+            </list></item>
+            <item>The <m_End/> is executed, when the user exits the <this/> and after the row he parked on was left</item>
+            </list>
+            <br/>Other events that happen are the <M_Activated/> and <M_Deactivated/>. Those events are triggered when the <this/> receives focus, or loses focus.
+            </remarks>
+            <MyExample code="UIControllerEventFlow" pubs="Y" UITools = "Y">UIController event flow</MyExample>
+        </member>
+        <member name="P:Firefly.Box.UIController.View">
+            <summary>
+            The main form of this <This/>. This <returnType/> will be displayed when the <see cref="M:Firefly.Box.UIController.Run"/> will be called.
+            </summary>
+            <MyExample code="SimpleUIController" pubs="Y" UITools="Y">Simple <This/></MyExample>
+        </member>
+        <member name="P:Firefly.Box.UIController.AllowInsertInUpdateActivity">
+            <summary>
+            Determines if the user can Insert a new row, while in <see cref="F:Firefly.Box.Activities.Update"/> <see cref="P:Firefly.Box.UIController.Activity"/>.
+            </summary>
+            <remarks>
+            When this property is set to true, and the <m_AllowInsert/> is set to true, the user can insert rows while in <see cref="F:Firefly.Box.Activities.Update"/> <see cref="P:Firefly.Box.UIController.Activity"/> in one of the following methods:
+            <list type="bullet">
+            <item>Raise the <see cref="F:Firefly.Box.Command.InsertRow"/> <see cref="T:Firefly.Box.Command"/></item>
+            <item>Navigate beyond the last row</item>
+            </list>
+            </remarks>
+            <myExample code="InsertInUpdate" pubs="Y" UITools = "Y">Insert in Update Activity</myExample>
+        </member>
+        <member name="P:Firefly.Box.UIController.Activity">
+            <summary>
+            Determines the main activity to be performed in this <This/>
+            </summary>
+            <remarks>
+            Allowed values
+            <list type="table">
+            <listheader>
+            <term>Activity</term>
+            <description>operation</description>
+            </listheader>
+            <item>
+            <term><see cref="F:Firefly.Box.Activities.Update"/> </term>
+            <description>The default. The user can navigate any row in the view, and perform changes as he see fit.</description>
+            </item>
+             <item>
+            <term><see cref="F:Firefly.Box.Activities.Insert"/> </term>
+            <description>The user will be presented with an empty screen, and will be able to create new rows.</description>
+            </item>
+             <item>
+            <term><see cref="F:Firefly.Box.Activities.Browse"/> </term>
+            <description>The user will be able to browse the data without performing changes to it. If <see cref="P:Firefly.Box.UIController.AllowIncrementalSearch"/> is true, the user will be able to type values, and navigate to a row that matches the values he typed, see example below</description>
+            </item>
+            </list>
+            The <see cref="F:Firefly.Box.Activities.Delete"/> activity is not allowed. A row can be deleted using the <see cref="F:Firefly.Box.Command.DeleteRow"/> or the <see cref="M:Firefly.Box.UIController.DeleteRowAfterLeavingItIf(System.Func{System.Boolean})"/>.
+            </remarks>
+            <MYEXAMPLE code="BasicIncrementalSearch" pubs="Y" UITools="Y">incremental search</MYEXAMPLE>
+            <MyExample code = "DemoSwitchActivities" pubs="Y" UITools="Y">Deferent Activities</MyExample>
+        </member>
+        <member name="P:Firefly.Box.UIController.NonDbWhere">
+            <summary>
+            This Where will always be evaluated in memory and may have performance implications
+            </summary>
+        </member>
+        <member name="P:Firefly.Box.UIController.AllowIncrementalSearch">
+            <summary>
+            Determines if the user is allowed to perform Incremental Search while the <see cref="P:Firefly.Box.UIController.Activity"/> is set to <see cref="F:Firefly.Box.Activities.Browse"/>. 
+            </summary>
+            <remarks>If set to true, the user will be able to type values, and navigate to a row that matches the values he typed.</remarks>
+            <see cref="P:Firefly.Box.UIController.Activity"/>
+            <see cref="P:Firefly.Box.UIController.SortOnIncrementalSearch"/>
+            <MyExample code="BasicIncrementalSearch" pubs="Y" UITools="Y"></MyExample>
+        </member>
+        <member name="M:Firefly.Box.UIController.SaveRowAndDo(System.Action{Firefly.Box.Advanced.UIOptions})">
+            <summary>
+            Saves the current row to the DB and performs the specified <paramref name="action"/> after the row was saved successfully.
+            </summary>
+            <param name="action">The action to be performed after the row is left</param>
+            <remarks>
+            This method is intended to perform operations like print the current row etc... while making sure that any changes made by the used are saved to DB and are verified.<br/>
+            Also this method is used to reload the data of the <this/> or navigate to deferent rows, both are done using the <see cref="T:Firefly.Box.Advanced.UIOptions"/> interface.
+            </remarks>
+            <MYEXAMPLE code="SaveRowAndDoDemo" pubs="Y" UITools="Y">using leave row to access changed data from the current row</MYEXAMPLE>
+        </member>
+        <member name="M:Firefly.Box.UIController.VisitFlow(Firefly.Box.Flow.IFlowVisitor)">
+            <summary>
+            Used to determine the user navigation type, between the controls
+            </summary>
+            <remarks>
+            Very Rarely Used, If ever.
+            </remarks>
+            <param name="visitor">An interface which methods will be called according to the specific user navigation options</param>
+        </member>
+        <member name="E:Firefly.Box.UIController.Deleting">
+             <summary>
+             Occurs when the user tries to delete a row.
+             </summary>
+             <remarks> An <see cref="T:Firefly.Box.Advanced.CancelEventArgs"/> is provided. If the <see cref="P:Firefly.Box.Advanced.CancelEventArgs.Cancel"/> is set to true, the row will not be deleted.</remarks>
+            <MyExample code="DeletingDemo" pubs="Y" UITools="Y">using the deleting event</MyExample>
+        </member>
+        <member name="E:Firefly.Box.UIController.Undoing">
+            <summary>
+            Occurs when the user tries to undo the changed in a row.
+            </summary>
+            <remarks> An <see cref="T:Firefly.Box.Advanced.CancelEventArgs"/> is provided. If the <see cref="P:Firefly.Box.Advanced.CancelEventArgs.Cancel"/> is set to true, the undo will not be performed.</remarks>
+            ///<MyExample code="UndoingDemo" pubs="Y" UITools="Y">using the Undoing event</MyExample>
+        </member>
+        <member name="E:Firefly.Box.UIController.ExitingAfterFailedReactivatingInvalidatedControl">
+            <summary>
+            Occurs when the the <see cref="T:Firefly.Box.UIController"/> is about to exit because a flow abort exception was thrown and there is no control to return keyboard focus to.
+            </summary>
+            <remarks> An <see cref="T:Firefly.Box.Advanced.CancelEventArgs"/> is provided. If <see cref="P:Firefly.Box.Advanced.CancelEventArgs.Cancel"/> is set to true, the undo will not be performed.</remarks>
+        </member>
+        <member name="P:Firefly.Box.UIController.ForceSaveRow">
+            <summary>
+            Forces the <this/> to perform the <m_SavingRow/>, when the user leaves the row. Overrides the default <m_SavingRow/> rules
+            </summary>
+            <remarks>
+            For more information about the default <m_SavingRow/> behavior, see the <m_SavingRow/> documentation.
+            </remarks>
+            <see cref="E:Firefly.Box.UIController.SavingRow"/>
+            <MyExample code="DemoLeaveRow" pubs="Y" UITools = "Y">leave row</MyExample>
+        </member>
+        <member name="P:Firefly.Box.UIController.AllowDelete">
+            <summary>
+            Determines if the user is allowed to use the <see cref="F:Firefly.Box.Command.DeleteRow"/>, <see cref="T:Firefly.Box.Command"/> to delete the current row.
+            </summary>
+            <MyExample code="DemoRaiseDelete" pubs="Y" UITools="Y">using the DeleteRow Command</MyExample>
+            <MyExample code="DemoSwitchActivities" pubs="Y" UITools="Y">Deferent Activities</MyExample>
+        </member>
+        <member name="E:Firefly.Box.UIController.SavingRow">
+            <summary>
+            Occurs whenever the user leaves a row, and that row is about to be saved to the Database.
+            </summary>
+            <remarks>
+            <h3>The SavingRow Process</h3>When the user leaves a row, and that row needs to be saved the <This/> will perform the following steps:
+            <list type="Bullets">
+            <item><see cref="E:Firefly.Box.UI.Advanced.InputControlBase.InputValidation"/> for all the controls on the form according to the tab order, starting from the currently focused control. </item>
+            <item>The row is saved to the database.</item>
+            <item>Notice that The <m_LeaveRow/> is being raised as well, just before the <m_SavingRow/> occures.</item>
+            </list> 
+            <br/>
+            The <SavingRow/> will happen, when the user leaves a row, in one of the following scenarios:
+            <list type="bullet">
+            <item>The <M_RowChanged/> is true. For more information on the causes, see <M_RowChanged/></item>
+            <item>The <M_ForceSaveRow/> is set to true.</item>
+            <item>The <see cref="F:Firefly.Box.Command.Select"/> <see cref="T:Firefly.Box.Command"/> was raised and the <M_AllowSelect/> is set to true</item>
+            <item>The row was deleted using one of the following methods:
+            <list type="bullet">
+            <item>The <see cref="F:Firefly.Box.Command.DeleteRow"/> <see cref="T:Firefly.Box.Command"/> was raised.</item>
+            <item>An expression provided to the <see cref="M:Firefly.Box.UIController.DeleteRowAfterLeavingItIf(System.Func{System.Boolean})"/> evaluates to true</item>
+            </list>
+            Notice that in this scenario, if the row was changed, the <SavingRow/> will happen twice, once for the row change, and once for the deletion of the row.
+            </item>
+            </list>
+            If none of these scenarios occurred the changes to the row <b>will not be saved to the database</b>. 
+            Also if the row is a new row, and none of the mentioned scenarios occurred, the row <b>will not be inserted to the database</b>.
+            </remarks>
+            <MyExample code="UIControllerEventFlow" pubs="Y" UITools = "Y">UIController event flow</MyExample>
+            <MyExample code="DemoLeaveRow" pubs="Y" UITools = "Y">leave row</MyExample>
+            <MyExample code="RowChangedDemo"><RowChanged/> and <SavingRow/></MyExample>
+            <seealso cref="P:Firefly.Box.UIController.RowChanged"/>
+            <seealso cref="P:Firefly.Box.UIController.ForceSaveRow"/>
+            <seealso cref="T:Firefly.Box.Doc.DeleteRowAfterLeavingIt"/>
+            <seealso cref="P:Firefly.Box.UIController.AllowSelect"/>
+        </member>
+        <member name="E:Firefly.Box.UIController.LeaveRow">
+            <summary>
+            Occurs whenever the user leaves a row, before the <m_RowChanged/> occurs
+            </summary>
+            <remarks>
+            When the user leaves the row (whether the row needs to be saved to the database 
+            or not) this event is raised and can be used for various operations.
+            </remarks>
+            <MyExample code="UIControllerEventFlow" pubs="Y" UITools = "Y">UIController event flow</MyExample>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Firefly.Box.Interop.ComColumn`1.#ctor(System.String)" -->
+        <member name="M:Firefly.Box.Interop.ComColumn`1.Dispose">
+            <summary>
+            Disposes the currently stored <see cref="T:System.Object"/> if it implements the <see cref="T:System.IDisposable"/> interface
+            </summary>
+        </member>
+        <member name="T:Firefly.Box.Interop.ActiveXColumn`1">
+            <summary>
+            Represents a column that contains an ActiveX
+            </summary>
+            <typeparam name="activeXType">The ActiveX type.<br/>
+            This type must be of <see cref="T:System.Windows.Forms.AxHost"/></typeparam>
+        </member>
+    </members>
+</doc>

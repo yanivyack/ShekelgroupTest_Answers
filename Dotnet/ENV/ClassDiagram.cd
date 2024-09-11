@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ENV.Data.ArrayColumn&lt;dataType&gt;" Collapsed="true">
+    <Position X="1.5" Y="11" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ENV.Data.BoolColumn" Collapsed="true">
+    <Position X="3.75" Y="11" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ENV.Data.ByteArrayColumn" Collapsed="true">
+    <Position X="10.5" Y="11" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ENV.Data.DateColumn" Collapsed="true">
+    <Position X="15" Y="11" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ENV.Data.NumberColumn" Collapsed="true">
+    <Position X="12.75" Y="11" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ENV.Data.TextColumn" Collapsed="true">
+    <Position X="6" Y="11" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ENV.Data.TimeColumn" Collapsed="true">
+    <Position X="8.25" Y="11" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.TextColumn" Collapsed="true">
+    <Position X="6" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.ArrayColumn&lt;dataType&gt;" Collapsed="true">
+    <Position X="1.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.TimeColumn" Collapsed="true">
+    <Position X="8.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.NumberColumn" Collapsed="true">
+    <Position X="12.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.DateColumn" Collapsed="true">
+    <Position X="15" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.BoolColumn" Collapsed="true">
+    <Position X="3.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.ByteArrayColumn" Collapsed="true">
+    <Position X="10.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.Advanced.TypedColumnBase&lt;dataType&gt;" Collapsed="true">
+    <Position X="9.25" Y="8" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.Advanced.ColumnBase" Collapsed="true">
+    <Position X="9.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ENV.BusinessProcessBase" Collapsed="true">
+    <Position X="1" Y="5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ENV.FlowUIControllerBase" Collapsed="true">
+    <Position X="6" Y="6.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ENV.UIControllerBase" Collapsed="true">
+    <Position X="3.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ENV.AbstractUIController" Collapsed="true">
+    <Position X="4.75" Y="5" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ENV.BackwardCompatibilityParameterizedTask" Collapsed="true">
+    <Position X="3" Y="3.75" Width="2.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.EnumColumn&lt;enumType&gt;" Collapsed="true">
+    <Position X="17.25" Y="11" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.Advanced.CustomColumnBase&lt;dataType&gt;" Collapsed="true">
+    <Position X="17.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.Advanced.FilterBase" Collapsed="true">
+    <Position X="8" Y="12.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.Advanced.DynamicFilter" Collapsed="true">
+    <Position X="6.75" Y="14" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.Advanced.FilterCollection" Collapsed="true">
+    <Position X="9" Y="14" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.TextBox" Collapsed="true">
+    <Position X="13.75" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.Advanced.InputControlBase" Collapsed="true">
+    <Position X="23.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.Advanced.TextControlBase" Collapsed="true">
+    <Position X="22.75" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.Advanced.ControlBase" Collapsed="true">
+    <Position X="20.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.Button" Collapsed="true">
+    <Position X="22.75" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.CheckBox" Collapsed="true">
+    <Position X="20.5" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.ComboBox" Collapsed="true">
+    <Position X="29.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.Grid" Collapsed="true">
+    <Position X="4.75" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.GridColumn" Collapsed="true">
+    <Position X="7" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.GroupBox" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.Label" Collapsed="true">
+    <Position X="36.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.Line" Collapsed="true">
+    <Position X="38.5" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.ListBox" Collapsed="true">
+    <Position X="27.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.PictureBox" Collapsed="true">
+    <Position X="25" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.RichTextBox" Collapsed="true">
+    <Position X="18.25" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.ScrollBar" Collapsed="true">
+    <Position X="16" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.Shape" Collapsed="true">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.SubForm" Collapsed="true">
+    <Position X="2.5" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.TabControl" Collapsed="true">
+    <Position X="31.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.Advanced.ListControlBase" Collapsed="true">
+    <Position X="29.5" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.UI.TreeView" Collapsed="true">
+    <Position X="34" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ENV.Data.Entity" Collapsed="true">
+    <Position X="0.75" Y="14" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Firefly.Box.Data.Entity" Collapsed="true">
+    <Position X="2.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ENV.Data.DynamicSQLEntity" Collapsed="true">
+    <Position X="3" Y="14" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,39 @@
+d:\northwindTraining\CustomerMigration\Dotnet\bin\Northwind.ini
+d:\northwindTraining\CustomerMigration\Dotnet\bin\Northwind.exe
+d:\northwindTraining\CustomerMigration\Dotnet\bin\Northwind.pdb
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind\obj\Debug\Northwind.csprojAssemblyReference.cache
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind\obj\Debug\Northwind.Views.ApplicationMdi.resources
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind\obj\Debug\Northwind.csproj.GenerateResource.cache
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind\obj\Debug\Northwind.csproj.CoreCompileInputs.cache
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind\obj\Debug\Northwind.csproj.CopyComplete
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind\obj\Debug\Northwind.exe
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind\obj\Debug\Northwind.pdb
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Dotnet\bin\Northwind.ini
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Dotnet\bin\Northwind.exe
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Dotnet\bin\Northwind.pdb
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Dotnet\Northwind\obj\Debug\Northwind.csProjAssemblyReference.cache
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Dotnet\Northwind\obj\Debug\Northwind.Views.ApplicationMdi.resources
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Dotnet\Northwind\obj\Debug\Northwind.csProj.GenerateResource.cache
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Dotnet\Northwind\obj\Debug\Northwind.csProj.CopyComplete
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Dotnet\Northwind\obj\Debug\Northwind.exe
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Dotnet\Northwind\obj\Debug\Northwind.pdb
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Shekel Test\Dotnet\bin\Northwind.ini
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Shekel Test\Dotnet\bin\Northwind.exe
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Shekel Test\Dotnet\bin\Northwind.pdb
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.csProjAssemblyReference.cache
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.Views.ApplicationMdi.resources
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.csProj.GenerateResource.cache
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.csProj.CopyComplete
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.exe
+\\Shekelgs\Users Documents\shoshanakr\My Documents\Niva test\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.pdb
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\bin\Northwind.ini
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\bin\Northwind.exe
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\bin\Northwind.pdb
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.csproj.AssemblyReference.cache
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.Views.ApplicationMdi.resources
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.csproj.GenerateResource.cache
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.csproj.CoreCompileInputs.cache
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.csproj.Up2Date
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.exe
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.pdb
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\obj\Debug\Northwind.Views.Views.GridView.resources

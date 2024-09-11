@@ -1,0 +1,16 @@
+d:\northwindTraining\CustomerMigration\Dotnet\bin\NorthwindInterfaces.xml
+d:\northwindTraining\CustomerMigration\Dotnet\bin\NorthwindInterfaces.dll
+d:\northwindTraining\CustomerMigration\Dotnet\bin\NorthwindInterfaces.pdb
+d:\northwindTraining\CustomerMigration\Dotnet\NorthwindInterfaces\obj\Debug\NorthwindInterfaces.csprojAssemblyReference.cache
+d:\northwindTraining\CustomerMigration\Dotnet\NorthwindInterfaces\obj\Debug\NorthwindInterfaces.csproj.CoreCompileInputs.cache
+d:\northwindTraining\CustomerMigration\Dotnet\NorthwindInterfaces\obj\Debug\NorthwindInterfaces.csproj.CopyComplete
+d:\northwindTraining\CustomerMigration\Dotnet\NorthwindInterfaces\obj\Debug\NorthwindInterfaces.dll
+d:\northwindTraining\CustomerMigration\Dotnet\NorthwindInterfaces\obj\Debug\NorthwindInterfaces.pdb
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\bin\NorthwindInterfaces.xml
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\bin\NorthwindInterfaces.dll
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\bin\NorthwindInterfaces.pdb
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\NorthwindInterfaces\obj\Debug\NorthwindInterfaces.csproj.AssemblyReference.cache
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\NorthwindInterfaces\obj\Debug\NorthwindInterfaces.csproj.CoreCompileInputs.cache
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\NorthwindInterfaces\obj\Debug\Northwin.F33894AC.Up2Date
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\NorthwindInterfaces\obj\Debug\NorthwindInterfaces.dll
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\NorthwindInterfaces\obj\Debug\NorthwindInterfaces.pdb

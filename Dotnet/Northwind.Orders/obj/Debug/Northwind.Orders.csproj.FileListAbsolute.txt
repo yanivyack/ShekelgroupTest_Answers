@@ -1,0 +1,26 @@
+d:\northwindTraining\CustomerMigration\Dotnet\bin\Northwind.Orders.dll
+d:\northwindTraining\CustomerMigration\Dotnet\bin\Northwind.Orders.pdb
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind.Orders\obj\Debug\Northwind.Orders.csprojAssemblyReference.cache
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind.Orders\obj\Debug\Northwind.Orders.csproj.CoreCompileInputs.cache
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind.Orders\obj\Debug\Northwind.Orders.csproj.CopyComplete
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind.Orders\obj\Debug\Northwind.Orders.dll
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind.Orders\obj\Debug\Northwind.Orders.pdb
+C:\Projects\Northwind\bin\Northwind.Orders.dll
+C:\Projects\Northwind\bin\Northwind.Orders.pdb
+C:\Projects\Northwind\Northwind.Orders\obj\Debug\Northwind.Orders.csprojAssemblyReference.cache
+C:\Projects\Northwind\Northwind.Orders\obj\Debug\Northwind.Orders.csproj.CopyComplete
+C:\Projects\Northwind\Northwind.Orders\obj\Debug\Northwind.Orders.dll
+C:\Projects\Northwind\Northwind.Orders\obj\Debug\Northwind.Orders.pdb
+C:\DotNetTest\Dotnet\bin\Northwind.Orders.dll
+C:\DotNetTest\Dotnet\bin\Northwind.Orders.pdb
+C:\DotNetTest\Dotnet\Northwind.Orders\obj\Debug\Northwind.Orders.csprojAssemblyReference.cache
+C:\DotNetTest\Dotnet\Northwind.Orders\obj\Debug\Northwind.Orders.csproj.CopyComplete
+C:\DotNetTest\Dotnet\Northwind.Orders\obj\Debug\Northwind.Orders.dll
+C:\DotNetTest\Dotnet\Northwind.Orders\obj\Debug\Northwind.Orders.pdb
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\bin\Northwind.Orders.dll
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\bin\Northwind.Orders.pdb
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind.Orders\obj\Debug\Northwind.Orders.csproj.AssemblyReference.cache
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind.Orders\obj\Debug\Northwind.Orders.csproj.CoreCompileInputs.cache
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind.Orders\obj\Debug\Northwin.1C930B0D.Up2Date
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind.Orders\obj\Debug\Northwind.Orders.dll
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind.Orders\obj\Debug\Northwind.Orders.pdb

@@ -1,0 +1,3 @@
+SELECT P.ProductID, P.ProductDesc, COALESCE(SUM(D.Quantity),0) AS Amount 
+FROM [dbo].[Products] P LEFT JOIN [dbo].[Order Details] D ON P.ProductID=D.ProductID
+GROUP BY P.ProductID, P.ProductDesc

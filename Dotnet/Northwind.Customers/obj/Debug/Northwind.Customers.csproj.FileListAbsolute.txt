@@ -1,0 +1,26 @@
+d:\northwindTraining\CustomerMigration\Dotnet\bin\Northwind.Customers.dll
+d:\northwindTraining\CustomerMigration\Dotnet\bin\Northwind.Customers.pdb
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind.Customers\obj\Debug\Northwind.Customers.csprojAssemblyReference.cache
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind.Customers\obj\Debug\Northwind.Customers.csproj.CoreCompileInputs.cache
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind.Customers\obj\Debug\Northwind.Customers.csproj.CopyComplete
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind.Customers\obj\Debug\Northwind.Customers.dll
+d:\northwindTraining\CustomerMigration\Dotnet\Northwind.Customers\obj\Debug\Northwind.Customers.pdb
+C:\Projects\Northwind\bin\Northwind.Customers.dll
+C:\Projects\Northwind\bin\Northwind.Customers.pdb
+C:\Projects\Northwind\Northwind.Customers\obj\Debug\Northwind.Customers.csprojAssemblyReference.cache
+C:\Projects\Northwind\Northwind.Customers\obj\Debug\Northwind.Customers.csproj.CopyComplete
+C:\Projects\Northwind\Northwind.Customers\obj\Debug\Northwind.Customers.dll
+C:\Projects\Northwind\Northwind.Customers\obj\Debug\Northwind.Customers.pdb
+C:\DotNetTest\Dotnet\bin\Northwind.Customers.dll
+C:\DotNetTest\Dotnet\bin\Northwind.Customers.pdb
+C:\DotNetTest\Dotnet\Northwind.Customers\obj\Debug\Northwind.Customers.csprojAssemblyReference.cache
+C:\DotNetTest\Dotnet\Northwind.Customers\obj\Debug\Northwind.Customers.csproj.CopyComplete
+C:\DotNetTest\Dotnet\Northwind.Customers\obj\Debug\Northwind.Customers.dll
+C:\DotNetTest\Dotnet\Northwind.Customers\obj\Debug\Northwind.Customers.pdb
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\bin\Northwind.Customers.dll
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\bin\Northwind.Customers.pdb
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind.Customers\obj\Debug\Northwind.Customers.csproj.AssemblyReference.cache
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind.Customers\obj\Debug\Northwind.Customers.csproj.CoreCompileInputs.cache
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind.Customers\obj\Debug\Northwin.AD7975F5.Up2Date
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind.Customers\obj\Debug\Northwind.Customers.dll
+C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind.Customers\obj\Debug\Northwind.Customers.pdb

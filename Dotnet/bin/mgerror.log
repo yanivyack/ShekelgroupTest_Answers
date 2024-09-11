@@ -1,0 +1,45 @@
+2024-09-11 19:46:24 - >> ERROR >> System.Data.SqlClient.SqlException - A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+External error code: -2146232060
+Entity: Products (dbo.Products), Northwind.Models.Products
+
+
+Short Callstack:
+
+   at Northwind.Views.Grid.Run() in C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\Views\Grid.cs:line 23
+   at Northwind.Views.ApplicationMdi.testToolStripMenuItem_Click(Object sender, EventArgs e) in C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\Views\ApplicationMdi.cs:line 55
+   at Northwind.ApplicationCore.Execute() in C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\ApplicationCore.cs:line 37
+   at Northwind.Views.ApplicationMdi.WndProc(Message& m) in C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\Views\ApplicationMdi.cs:line 27
+   at Northwind.ApplicationCore.Run() in C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\ApplicationCore.cs:line 27
+   at Northwind.Program.Main(String[] args) in C:\Users\navaj\Desktop\Shekel Test\Dotnet\Northwind\Program.cs:line 12
+Inner Error : System.ComponentModel.Win32Exception - The network path was not found
+External error code: -2147467259
+Inner Trace : 
+
+
+Callstack:
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at ENV.Utilities.Profiler.ProfiledConnection.Open()
+   at ENV.Data.DataProvider.ConnectionManager.DecorateConnection(IDbConnection connection)
+   at ENV.Data.DataProvider.ConnectionManager.<>c__DisplayClass31_1.<AddDatabase>b__4()
+Inner Error : The network path was not found
+Inner Trace : 
+
+
+Application Callstack:
+Grid - Northwind.Views.Grid
+
+Open database connections:
+NORTHWIND - NORTHWIND Datasource=MSSQLSERVER;Catalog=Northwind;User=Yaniv
+
+Northwind Version: 4.6.0.33985
+Firefly Version: 4.6.0.33985
+
+

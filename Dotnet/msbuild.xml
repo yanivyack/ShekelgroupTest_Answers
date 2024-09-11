@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets="Step5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+    <Target Name="Step1" DependsOnTargets="">
+    <MSBuild Projects=".\ENV\ENV.csproj;"  BuildInParallel="true"  StopOnFirstFailure="true"/>
+    </Target>
+    <Target Name="Step2" DependsOnTargets="Step1">
+    <MSBuild Projects=".\NorthwindInterfaces\NorthwindInterfaces.csproj;"  BuildInParallel="true"  StopOnFirstFailure="true"/>
+    </Target>
+    <Target Name="Step3" DependsOnTargets="Step2">
+    <MSBuild Projects=".\NorthwindBase\NorthwindBase.csproj;"  BuildInParallel="true"  StopOnFirstFailure="true"/>
+    </Target>
+    <Target Name="Step4" DependsOnTargets="Step3">
+    <MSBuild Projects=".\Northwind.Customers\Northwind.Customers.csproj;.\Northwind.Products\Northwind.Products.csproj;.\Northwind.Orders\Northwind.Orders.csproj;"  BuildInParallel="true"  StopOnFirstFailure="true"/>
+    </Target>
+    <Target Name="Step5" DependsOnTargets="Step4">
+    <MSBuild Projects=".\Northwind\Northwind.csproj;"  BuildInParallel="true"  StopOnFirstFailure="true"/>
+    </Target>
+  </Project>
